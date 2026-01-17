@@ -1,0 +1,117 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsfonts}
+
+\title{MAT157H5, LEC0101, Sep 16}
+
+\begin{document}
+
+\maketitle
+
+\noindent Review
+\begin{itemize}
+    \item Sets
+    \begin{itemize}
+        \item Cartesian Product
+        \item $A \times B = \{(x,y)\mid x\in A, y\in B\}$
+    \end{itemize}
+\end{itemize}
+Relation (Binary)
+\begin{enumerate}
+    \item $x\in A$
+    \item $x \geq y$
+    \item $A \subseteq B$
+    \item $a=b$ mod 4
+    \item $\frac{x}{y} \in Q$
+    \item $\triangle ABC \cong \triangle DEF$
+\end{enumerate}
+\noindent Set (Binary Relation)
+\\Let A, B be two sets. We say a subset $R\subset A\times B$ a relation from A to B
+\\\\Example:\\
+Let A and B be two sets 
+\begin{itemize}
+    \item $\emptyset \subseteq A \times B$ (trivial relation)
+    \begin{itemize}
+        \item (No relation is a relation) 
+    \end{itemize}
+    \item $A\times B \subseteq A\times B$ (Universal relation)
+\end{itemize}
+Example:\\
+Take $R = \{(1,3),(2,2),(7,6)\}\subseteq \mathbb{Z} \times \mathbb{Z}$
+\\Types of relations
+\begin{itemize}
+    \item Function
+    \item Classification
+    \item Order
+\end{itemize}
+\textbf{Function}
+Def: \\
+
+Let $R\subseteq A\times B$ be a binary relation
+We say R is\\ 
+Entire: if $\forall x \in A, \exists y \in R, st (x,y)\in R$\\
+Functional: if $\forall x\in A, y_1,y_2\in B, (x,y_1) \in R \wedge (x,y_2) \in R \rightarrow y_1=y_2$\\
+We say a relation $f\subseteq A\times B$ is a function if it is both entire and functional, and we denote it by $f:A\rightarrow B$
+\\\\Remark:
+For $(x,y)\in R$, we denote it by $xRy$, x relation y
+\\If $xfy$ we also denote it by $y=f(x)$
+\\$y=f(x)$ is a statement and a claim.
+\\$f: A\rightarrow B$ means subset where you can represent a function
+\\\\Example:
+\\$A\rightarrow B$
+\\If there is an element in A which does not have a B, then its not entire
+\\If there is an element in A which corresponds to two elements in B, then its not functional
+\\Logically Speaking
+\\Entire: Every input x has at least an output y (output exists)
+\\Functional; Every input x has at most one output y (output is unique)
+\\Taken together, every input x has one output y
+\\\\Remark
+\\A function's definition involves A and B, called the domain and codomain
+\\\\Example:
+\\$y=x^2$, not a function, no A and B domains
+\\$f: R \rightarrow R$, this alone is a function, $x\rightarrow x^2$
+\\$f: R\rightarrow [0,\infty)$, $x\rightarrow x^2$, if there is difference in domain or codomain, not the same function
+\section{Image and Preimage}
+\noindent Let $f: A\rightarrow B$ be a function
+\\$\forall c\subseteq A$ the set $f(c)=\{f(x)\mid x\in C\} \subseteq B$
+\\is called the image of C under f
+\\\\$\forall D \subseteq B$ the set $f^{-1}(D)=\{x\mid f(x)\in D\} \subseteq A$
+\\this is called the preimage of D under f
+
+\noindent Remark:
+\\$f^{-1}$ does not always mean the inverse
+\\$f^{-1}(y), y\in B$ means the inverse 
+\\$f^{-1}(\{y\}), y\in B$ mean preimage 
+
+\noindent Example:
+\\$f^{-1}(y)$ means there is an inverse, it is bijective (One to one) which is not claimed by knowing its a function.
+
+\noindent Example:
+\\$f:R\rightarrow R$ $x\rightarrow x^2$
+\\
+
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|}\hline
+         $f^{-1}(c)$&  c& f(c)\\\hline
+         {0}&  {0}& {0}\\\hline
+         {-1,1}&  {1}& {1}\\\hline
+         [-1,1]&  [0,1]& [0,1]\\\hline
+         $\emptyset$&  {-1}& {1}\\\hline
+    \end{tabular}
+    \label{tab:placeholder}
+\end{table}
+\noindent Theory
+\\Let $f:A\rightarrow B$
+\\$\forall C\subseteq A$ $C\subseteq f^{-1}(f(C))$
+\\$\forall D\subseteq B$ $f(f^{-1}(D))\subseteq D$
+\\injectivity and subjectivity
+\noindent Proof:
+\\Let $C\subseteq A$ be arbitrary
+\\Let $x\in C$, then
+\\$x\in C \rightarrow f(x) \in f(C)\rightarrow x\in f^{-1}(f(x))$
+
+\noindent Let $D\subseteq B$ be arbitrary
+\\Let $y\in f(f^{-1}(D))$, then
+\\$\exists x \in f^{-1}(D)$ st $y=f(x)\in D$
+\end{document}

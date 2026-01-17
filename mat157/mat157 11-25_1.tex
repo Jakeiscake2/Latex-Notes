@@ -1,0 +1,87 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsfonts,amsmath}
+\title{mat157 11-25}
+\date{November 2025}
+
+\begin{document}
+
+\maketitle
+\section{Review}
+\noindent
+Derivative: $\begin{array}{cc}
+     &  f:D\subseteq \mathbb R\to \mathbb R\\
+     & x_0\in\mathring{D}
+\end{array}$
+\[f(x_0)=\lim_{\Delta x\to-}\frac{f(x_0-\Delta x)-f(x_0)}{\Delta x}\]
+Differentiation:\\
+\[\mathcal L(\Delta x)=\{g:\mathbb{R\to R}|g(\Delta x)=c\Delta x\text{ for some c}\}\]
+\[=\text{all linear functions on }\Delta x\]
+\subsubsection{Example:}
+\noindent $dx:\Delta x\to \Delta x$\\
+Differentiation is the operation:
+\[f:\mathbb{R\to R}:f(x+\Delta x)-f(x)=A\Delta x+0(\Delta x)\]
+\[f\xrightarrow{\text{differentiation}}A\Delta x\]
+Takes in a function, and returns a linear function of Delta x.
+\subsubsection{Example}
+\noindent $f:\mathbb{R\to R},\ x\mapsto x$\\
+$f(x+\Delta x)-f(x)=(x+\Delta x)-x = \Delta x+0$
+\subsubsection{Example}
+\noindent $f:\mathbb{R\to R},\ x\mapsto x^2$\\
+$f(x+\Delta x)-f(x)=(x+\Delta x)^2-x^2 = 2x\Delta x+(\Delta x)^2$\\
+Note that the function may not appear linear, but is linear when considering with respect to $\Delta x$.
+\subsubsection{Example}
+\noindent $f:\mathbb{R\to R},\ x\mapsto x^3$\\
+$f(x+\Delta x)-f(x)=(x+\Delta x)^3-x^3 = 3x^2\Delta x+3x(\Delta x)^2+(\Delta x)^3$\\
+Only the first term is linear, all others are of higher order.
+\\\\
+\[f\longrightarrow df(x)\]
+is the differentiation.\\
+where $df(x):\mathbb{R\to R},\Delta x\mapsto A\Delta x$
+\subsubsection{Example}
+\noindent $f:\mathbb{R\to R},\ f(x)=|x|$\\
+Is f differentiable at 0?\\
+$f(0+\Delta x)-f(0)=|\Delta x|=\begin{cases}
+    \Delta x, \text{if } \Delta x\geq 0\\
+    -\Delta x, \text{if }\Delta x<0
+\end{cases}$\\
+How about at other points?\\
+$f(x_0+\Delta x)-f(x_0)=|x_0+\Delta x|-|x_0|=\begin{cases}
+    x_0+\Delta x-x_0=\Delta x,\text{if }x_0\geq 0\\
+    -x_0+\Delta x+x_0=\Delta x,\text{if }x_0< 0\\
+\end{cases}$\\
+\subsection{Theorem}
+\noindent Let $f:D\subseteq \mathbb{R\to R},\ x_0\in\mathring{D}$\\
+f is differentiable at $x_0\iff f'(x_0)$ exists.\\
+Proof:\\
+\[\text{f is differentiable at }x_0\implies f(x_0+\Delta x)-f(x_0)=A\Delta x+o(\Delta x)\]
+\[\implies f'(x_0)=\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}=\lim_{\Delta x\to 0}A+\frac{o(\Delta x)}{\Delta x}=A\]
+\[f'(x_0)\text{ exists }\implies \lim_{\Delta x\to 0}\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}=f'(x_0)=\lim_{\Delta x\to 0}f'(x_0)\]
+\[\implies \lim_{\Delta x\to 0}(\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x}-f'(x_0))=0\]
+\[\implies \lim_{\Delta x\to 0}(\frac{f(x_0+\Delta x)-f(x_0)-f'(x_0)\Delta x}{\Delta x})=0\]
+\[\implies f(x_0+\Delta x)-f(x_0)-f'(x_0)\Delta x=o(\Delta x)\]
+\subsubsection{Remark}
+\[df(x)=f'(x)dx\]
+Differentiation = constant values times a function 
+\[\frac{df}{dx}=f'(x)\]
+Ratio of two functions achieved by differentiation.\\
+This becomes significant when working with multivariable calculus, as functions like
+\[\frac{df(xy)}{dy}\]
+is nonsense, you cannot map a 2d function with 1 basis.
+\subsection{Composition(Chain Rule)}
+\noindent $f:D_1\subseteq \mathbb{R\to R}$\\
+$g:D_2\subseteq \mathbb{R\to R}$\\
+$x_0\in \mathring{D_1},\ y_0=f(x_0)\in\mathring{D_2}$\\
+And we know $f'(x_0)$ exists and $g'(y_0)$ exists.\\
+\subsubsection{Non-rigorous proof}
+\[\frac{g\circ f(x+\Delta x)-g\circ f(\Delta x)}{\Delta x}=(\frac{g(f(x+\Delta x))-g( f(\Delta x))}{f(x_0+\Delta x)-f(x_0)})(\frac{f(x_0+\Delta x)-f(x_0)}{\Delta x})\]
+\[=g(f'(x_0))f'(x_0)\]
+However, this proof fails because $x+\Delta x\not = \Delta x$, but we can prove that it does not matter.
+\[g\circ f(x+\Delta x)-g\circ f(x)\]
+\[=g\circ f(x+\Delta x)-g\circ f(x)\]
+\[=g\left (f(x)+f'(x)\Delta x+o(\Delta x)\right)-g\left (f(x)\right )\]
+\[=g'(f(x))\Delta y+o(\Delta y)\]
+\[g'(f(x))\left (f'(x)\Delta x+o(\Delta x)\right )+o(f'(x)\Delta x+o(\Delta x))\]
+\[g'(f(x))(f'(x)\Delta x+o(g'(f(x))\Delta x +f'(x)\Delta x+o(\Delta x))\]
+\[g'(f(x))f'(x)\Delta x\]
+\end{document}

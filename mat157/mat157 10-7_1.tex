@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx} % Required for inserting images
+
+\title{mat157 10-7 lec0101}
+\date{October 2025}
+
+\begin{document}
+
+\maketitle
+\noindent Review
+
+
+\noindent We have shown that + is well defined
+\\We do not know what real numbers are, we are defining a new set called the real numbers 
+\\Commutivity
+\\$\forall a=A|A',b=B|B'\ a+b=b+a$
+\\Proof:
+\\$\forall z\in \mathbb{Q}$
+\\$\exists x\in A, \exists y\in B\ st\ z=x+y$
+\\$\exists y \in B, \exists x\in A\ st\ z=y+x$
+\\Here we use the commutivity of the rational numbers to show z=z and x+y=y+x
+\\Anti-symmetry
+\\$\forall a=A|A',b=B|B',c=C|C'$
+\\$(a+b)+c=D|D'$
+\\$a+(b+c)=E|E'$
+\\D={$p+q|p=x+y,x\in A,y\in B, q\in C$}
+\\E={$x+l|x\in A,l=y+c, y\in B, c\in C$}
+\\These are the same using the antisymmetry of the rational numbers
+\\Let 0 = $Q_{<0}|Q_{\leq0}$
+\\Claim: $\forall a=A|A',a+a=a$
+\\Proof:
+\\Let x+0=B|B', B={$x+y|x\in A,y<0$}
+\\$A\subseteq B$ Let $a\in A$
+
+\\$B\subseteq A$: Let $x\in B$ st
+\\$x=\bar{x} +y$ where $\bar{x} \in A, y \in Q_{<0}$
+\\In particular, $x<\bar{x} \in A$ and hence $x\in A$ 
+\\Show A is closed downwards. $\hfill \square$
+\\Extreme of addition inverse
+\\Let $\alpha = A|A',\text{there exists }b=B|B'$ st $a+b=0$
+\\Proof: Let $x=A|A'$. Define $b=B|B'$
+\\$a\in Q$
+\\$A=\{x\in Q|x<a\}$
+\\$A'=\{x\in Q|x\geq a\}$
+\\$B=\{x\in Q|x<a\}$
+\\$B'=\{x\in Q|x\geq a\}$
+\\2) $a \not \in Q $
+\\B={$x\in Q|-x\in A'$}
+\\B'={$x\in Q|-x\in A$}
+\\Observe that in both cases, 
+\\if $x\in B$ then $-x\in A'$
+\\and if $x\in A$ then $-x\in B'$
+\\Prove: $a+b\leq 0$
+\\Let $x\in A, y\in B\ st\ z=x+y$
+\\$z=x-(-y)$
+\\However, -y is in A' and A' dominates A, so $z<0$
+\\Prove: $0\leq x+b$
+\\Let z<0, then exists $x_1\in B;, x_2\in B$
+\\st $x_1+z=x_2$
+\\Order, addition, 
+\\Do muliplication on own
+\end{document}

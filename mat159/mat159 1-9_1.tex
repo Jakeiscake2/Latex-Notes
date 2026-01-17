@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsfonts,amsmath}
+\title{mat159 1-9}
+\date{January 2026}
+
+\begin{document}
+
+\maketitle
+\section{Week 1}
+Primitive: $\begin{array}{ll}
+     &  F,f:D\subseteq \mathbb R\to \mathbb R\\
+     & \forall x\in D, F'(x)=f(x)
+\end{array}$
+Primitive: Not Unique, but if D is an open interval then F is unique up to some value c.\\
+Existence of primitive:\\
+Fact: $\begin{array}{cc}
+     &  \text{f is continuous on D is sufficient}\\
+     &  \text{f is Darboux on D is necessary}
+\end{array} $
+\subsection{Theorem}
+Let f be continuous on [a,b] and is differentiable on (a,b). Then f is Darboux on (a,b).\\
+\subsubsection{Proof:}
+Let $(a_1,b_1)\subseteq (a,b)$, without the loss of generality, $f'(a_1)>f'(b_1)$. Given any $f'(b_1)<\xi<f'(a_1)$. COnsider the function $G:(a_1,b_1)\to\mathbb R$ where $G(x)=f(x)-\xi x$. \\
+Note that: $\begin{array}{ll}
+     &  G'(a)=f'(a)-\xi>0\\
+     &  G'(b)=f'(b)-\xi<0
+\end{array}$\\
+Moreover, G is continuous on $[a_1,b_1]$, Thus G permits a maximum on $[a_1,b_1]$. Say $x^*,G'(x^*)=0.$ Thus, $f'(x^*)=\xi$.\\
+$\xi$ cannot be on a or b because the derivative gives locally increasing or locally decreasing.\\
+\subsection{Discontinuity}
+Under the same assumptions, f cannot have type I discontinuities.\\
+Lemma: f is differentiable\\ 
+\subsubsection{Proof:}
+\[\lim_{\Delta x\to 0}\frac{f(a+\Delta x)-f(a)}{\Delta x}=\lim_{\Delta x\to 0}\frac{f(a+\theta\Delta x)}{\Delta x}=\lim_{\Delta x\to 0}f'(a+\theta\Delta x)=f'(a+)\]
+\subsubsection{Proof*:}
+Assume that f' has a discontinuity of type I, at $x_0\in(a,b)$, Then $f'(x_0+)=f'_+(x_0)$ and $f'(x_0-)=f'_-(x_0)$. However, since we know the derivative exists based on f being differentiable, these are equal. Hence f' is continuous on $x_0$.\\
+\section{Indefinite Integral}
+\[\int f(x)dx\]
+If F is a primitive of f in D, Then $\int f(x)dx=F+C$
+\subsection{Elementary Functions}
+\[\int 1 dx=x+C\]
+\[\int x^ndx=\frac{1}{n+1}x^{n+1}+C,\ n\not=1\]
+\[\int \frac{1}{x}=\ln|x|+C\]
+\[\int a^x dx=\frac{a^x}{\ln x}+C,\ a>0\]
+\[\int \sin(x) dx=\cos(x)+C\]
+\[\int \cos(x)dx=-\sin(x)+C\]
+\[\int \sec^2(x)dx=\tan(x)+C\]
+\[\int \frac{1}{x^2+1}dx=\arctan(x)+C\]
+\subsection{Techniques of Integration}
+\subsubsection{Linearity}
+\[\int (f(x)-g(x))dx=\int f(x)dx-\int g(x)dx+C\]
+\subsubsection{Example}
+$\begin{array}{llllll}
+     &  \int(1+x)^{2026}dx=\int\sum_{k=0}^{2026}C_{2026}^k*x^kdx\\
+     &  =\sum_{k=0}^{2026}C_{2026}^k\int x^kdx\\
+     &  =\sum_{k=0}^{2026}C_{2026}^k\frac{1}{k+1}x^{k+1}+C\\
+     &  =\sum_{k=0}^{2026}C_{2026}^k\frac{1}{k+1}x^{k+1}+C\\
+     &  =\frac{1}{2027}\sum_{k=0}^{2027}C_{2027}^{k-1}x^{k+1}+C\\
+     &  =????????????????????????+C\\
+     & =\frac{1}{2027}(x+1)^{2027}+C
+\end{array}$
+\[F(x)=f(x)\]
+\[\frac{dF}{dx}=f(x)\]
+\[x=\lambda(y)\]
+\[\frac{dF}{dy}=f(x)\lambda'(y)\]
+\[\implies dF=f(x)\lambda'(y)dy=f(x)dx\]
+\subsubsection{Example}
+\[\int (1+x)^{2026}dx=\int (1+x)^{2026}d(x+1)=\frac{1}{2027}(1+x)^{2027}+C\]
+Method 1:
+\[\int \cos x\sin x \ dx=\frac{1}{2}\int \sin 2x\ dx=\frac{1}{4}\int \sin 2x\ d(2x)=-\frac{1}{4}\cos 2x+C\]
+Method 2:
+\[\int \cos x\sin x \ dx=\int \sin x\ d(\sin x)=\frac{1}{2}(\sin x)^2+C\]
+\subsubsection{Example}
+\[\int e^{-x^2}x\ dx=\int e^{-x^2}\ d(-\frac{1}{2}x^2)=\frac{1}{2}\int e^{-x^2}\ d(-x^2)=-\frac{1}{2}e^{-x^2}+C\]
+\[\int\frac{1}{a\cos^2x+b\sin^2x}dx,a>0\ b>0\]
+\end{document}

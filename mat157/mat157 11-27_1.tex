@@ -1,0 +1,126 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsfonts,amsmath}
+\title{mat157 11-27}
+\date{November 2025}
+
+\begin{document}
+
+\maketitle
+\subsection{Review}
+\noindent Derivative:\\
+Arithmetic\\
+Chain Rule\\
+$\lim_{\Delta x\to 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}=f'(x)$\\
+Differentiation\\
+$f(x+\Delta x)=f(x)+A\Delta x+o(\Delta x)$\\
+\subsection{Invariance of differentiation}
+\noindent $f=f(u)$ where $u=g(u)$, then $f=g(f(v))=f(v)$. However, we also know that $df=f'(u)du$, thus $f'(u)g'(v)fv$\\
+\subsection{Hopital Principle?}
+\noindent Apparently he bought it?\\
+Take the fraction of the limit of two functions. If both give values you have no issue, however if both the top and bottom are 0. You have an issue.\\
+\[\lim_{x\to x_0}\frac{f(x)}{g(x)}=\lim_{x\to x_0}\frac 0 0\]
+Which is to say $\lim_{x\to x_0}f(x)=0$ and $\lim_{x\to x_0}g(x) = 0$\\
+If the derivative of f and g both exist, when can take
+\[\lim_{\Delta x\to 0}\frac{f(x+\Delta x)}{g(x+\Delta x)}=\lim_{\Delta x\to 0}\frac{f(x_0)+f'(x_0)\Delta x+o(\Delta x)}{g(x_0)+g'(x_0)\Delta x+o(\Delta x)}\]
+\[=\lim_{\Delta x\to 0}\frac{f'(x_0)+o(\Delta x)/\Delta x}{g'(x_0)+o(\Delta x)/\Delta x}\]
+\subsection{Properties of Differentiable functions}
+\begin{itemize}
+    \item Fermat's Theorem
+    \item Rolle Theorem
+    \item Lagrange Theorem
+    \item Cauchy Theorem
+\end{itemize}
+\noindent The Lagrange Theorem is most useful.\\
+\subsection{Fermat Theorem}
+\noindent Let $f:D\subseteq \mathbb{R\to R}$ be a function, and f is differentiable at some $x_0\in \mathring{D}$\\
+If $f'(x_0)>0$, then f is an increasing function locally.\\
+If $f'(x_0)<0$, then f is an decreasing function locally.\\
+Proof:\\
+Since f is differentiable at $x_0$, 
+\[f(x+\Delta x)=f(x)+f'(x)\Delta x+o(\Delta x)\]
+Consider that $\exists \delta >0$ such that $\forall |\Delta x|<\delta$.
+\[|f(x+\Delta x)-f(x)-f'(x)\Delta x|=|o(\Delta x)|<\frac{1}{2}|f'(x)\Delta x|\]
+If $\Delta x > 0$, then 
+\[f(x+\Delta x)-f(x)=f'(x_0)\Delta x+o(\Delta x)>\frac{1}{2}|f'(x)\Delta x|>0\]
+Since the value of $f(x+\Delta x)-f(x)>0$, it is locally increasing. The same proof can be used for decreasing.\\
+\subsubsection{Remark}
+\noindent If $f'(x_0)=0$, then it is inconclusive.
+\\Example:\\
+$f:\mathbb{R\to R},\ x\mapsto x^3$\\
+$f'(x_0)=\lim_{x\to x_0}3x^2=0$, but it is strictly increasing at 0
+$f:\mathbb{R\to R},\ x\mapsto -x^3$\\
+$f'(x_0)=\lim_{x\to x_0}-3x^2=0$, but it is strictly decreasing.\\
+Even if $f'(x_0)$ does not exist, it may still be monotonic. For example
+$f:\mathbb{R^+\to R},\ x\mapsto x$\\
+\subsection{Rolle Theorem}
+\noindent Let $f:[a,b]\to \mathbb R$ be a function satisfying 
+\begin{enumerate}
+    \item f is continuous on $[a,b]$
+    \item f is differentiable on $(a,b)$
+    \item $f(a)=f(b)$
+\end{enumerate}
+\noindent Then we know that $\exists c\in (a,b)$ such that $f'(c)=0$
+\subsection{Properties of Differentiable function}
+\noindent Proof: Since f is continuous on $[a,b]$, so it allows a finite maximum and minimum. \\
+Let $M=f(c_1),m=f(c_2)$ and $c_1,c_2\in[a,b]$\\
+If $M=m$, then f is a constant function ($f=c$) on $[a,b]$. Take any $c\in[a,b]$ and $f'(c)=0$\\
+If $M>m$, at least one of $M$ or $m$ is an interior point because $f(a)=f(b)$.\\
+\subsubsection{Lemma:(Corollary of Fermat Theorem)}
+\noindent Let $f:D\subseteq \mathbb{R\to R},\ x_0\in\mathring{D}$, Moreover, $x_0$ is locally maximum and $f'(x_0)$ exists. Then $f'(x_0)=0$.\\
+Proof:\\
+If $f'(x_0)>0$, then $f(x_0+\Delta x)>f(x_0)$.\\
+If $f'(x_0)<0$, then $f(x_0-\Delta x)>f(x_0)$.\\
+Thus, $f'(x_0)=0$
+\subsection{Remark}
+\noindent If you do not have the condition $f(a)=f(b)$, it could be a linear function where the max is $a$ and the min is $b$. Thus, if both points are boundary points it does not hold.\\
+Differentiability is important because if $f(x)=|x|$, the point $c$ could have $f'(c)$ does not exist.\\
+You do not need the boundary points $a$ and $b$ to be differentiable, though. \\Consider $\sqrt{1-x^{2}}$\\
+\subsection{Lagrange Theorem}
+\noindent $f:[a,b]\to \mathbb R$\\
+f is continuous on $[a,b]$\\
+f is differentiable on $(a,b)$\\
+Then $\exists c\in(a,b)$ such that $f(b)-f(a)=f'(c)(b-a)$\\
+The idea is that you find some tangent of the curve equals the slope from $a$ to $b$. $\frac{f(b)-f(a)}{b-a}$.\\
+Proof:\\
+Define $g:[a,b]\to \mathbb R$\\
+$g(c)=(x-a)\frac{f(b)-f(a)}{b-a}-f(x)$\\
+g is continuous on $[a,b]$ because it is composed of elementary functions\\
+g is differentiable on (a,b) because uhhh idk\\
+g(b)=g(a)=-f(a) by substitution. \\
+Thus, $\exists c\in(a,b)$ such that $g(c)=0$\\
+Then $0=(x-a)\frac{f(b)-f(a)}{b-a}-f(x)\implies f(c)=\frac{f(b)-f(a)}{b-a}$.\\
+\subsubsection{Remark}
+\noindent Lagrange finite increment formula.
+\[f(x+\Delta x)-f(x)=f'(c)\Delta x=f'(x+\theta\Delta x)\]
+\subsubsection{Example}
+\noindent Recall we have discussed the continuity of $f:(0,+\infty)\to(0,+\infty),\ x\mapsto \frac{1}{x}$\\
+Recall that f is point wise continuous but not uniformly continuous.\\
+By the Lagrange theorem.
+\[f(b)-f(a)=f'(c)(b-a)\]
+We can compute the value derivative of f at c\\
+\[=-\frac{1}{c^2}(b-a)=-\frac{1}{(a-\theta(b-a))^2}(b-a)\implies\]
+\[|f(b)-f(a)|=|\frac{1}{a-\theta(b-a)^2}||y-x|\]
+\subsection{Corollary Theorem}
+\noindent If $f\in C'([a,b])$, then f is lipschitz.\\
+\subsection{Cauchy Theorem}
+\noindent $f,g\in[a,b]\to\mathbb R$\\
+f,g are continuous
+f,g are differentiable
+Then, $\exists c\in[a,b]$ such that $(f(b)-f(a))g'(c)=(g(b)-g(a))f'(c)$.\\
+
+\subsection{Higher Order Derivatives and Taylor Expansion}
+\noindent $f:\mathbb{R\to R}$ where f is smooth (infinitely differentiable) 
+\[f(x)=\sum_{n=0}^\infty a_n x^n=a_0+a_1x+a_2x^2+a_3x^3+\dots\]
+\[f(0)=a\]
+\[f'(x)=a_1+a_2x+a_3x^2+\dots\]
+\[f'(0)=a_2\]
+\[f''(x)=2a_2+3*2a_3x+4*3*a_4x^2+\dots\]
+\[f''(0)=2a_2\implies a_2=\frac{f''(0)}{2}\]
+\[a_n=\frac{f^n(0)}{n!}\]
+\subsection{Theorem}
+\noindent $f:D\subseteq \mathbb R\to \mathbb R$\\
+If f has a derivative up to order n near $x_0\in D$\\
+Then,
+\[f(x)=\sum_\]
+\end{document}

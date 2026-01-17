@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amsfonts}
+\title{mat157 11-11 Lec0101}
+\date{November 2025}
+
+\begin{document}
+
+\maketitle
+\section{Week 10}
+\noindent Review
+\begin{itemize}
+    \item Limit of a function $\lim_{x\to x_0}f(x)=L$
+    \item Continuity of a function at x. $\lim_{x\to x_0}f(x)=f(c)$
+    \item Type of discontinuity
+\end{itemize}
+\subsection{Limit and arithmetic}
+\[\lim_{x\to x_0}f(x)=a,\lim_{x\to x_0}g(x)=b\]
+\[\lim_{x\to x_0}f\pm g(x)=a\pm b\]
+\[\lim_{x\to x_0}f*g(x)=ab\]
+\[\lim_{x\to x_0}\frac{f(x)}{g(x)}=\frac{a}{b},\text{ if } b\not = 0\]
+\subsection{Order}
+\noexpand If $a<b$, then $g>f$ in some $\mathring I_\delta(x_0)$
+\\If $g\geq f$, in some $\mathring I_\delta(x)$, then $b\geq a$
+\[\lim_{x\to x_0}f(x)=L\iff \forall \{a_n\}_{n\in \mathbb N} \subseteq \text{Dom}(f),\lim_{n\to \infty}a_n=x_0\implies \lim_{n\to \infty}f(a_n)=L\]
+\subsection{Remark}
+\noindent All the above passes to continuity as well by replacing L by $f(x_0)$
+\subsection{Remark}
+\noindent All elementary functions are continuous under their domain (Next weeks test may cover this)
+\subsection{Composition}
+\noindent Assume that $f:I_c(x_0)\to \mathbb R,g:I_c(y_0)\to \mathbb R$ at $x_0$ and $y_0$ respectively, and $f(x_0)=y_0$. The $g\circ f$ is also continuous at $x_0$.
+\[\lim_{x\to x_0}g(f(x))=g(f(x))\]
+\\Proof:
+\\The composition is well defined in some $I_{\tilde c}(x_0)$
+\[\forall \epsilon>0,\exists \delta>0:\forall x\in\mathbb R, |x-x_0|<\delta,|f(x)-f(x_0)|<\epsilon\]
+\[\forall \epsilon>0,\exists \delta'>0:\forall y\in\mathbb R, |y-y_0|<\delta',|g(y)-g(y_0)|<\epsilon\]
+\[\forall \epsilon>0,\exists \delta>0:\forall x\in\mathbb R, |x-x_0|<\delta,|f(x)-y|<\epsilon\]
+\[\forall \epsilon>0,\exists \delta'>0:\forall y\in\mathbb R, |y-y_0|<\delta',|g(f(x))-g(f(x_0))|<\epsilon\]
+\subsection{Local Properties}
+\noindent Proposition: Let $f:I_\delta(x)\to \mathbb R$ be continuous at $ x_0$.
+\\Then,
+\begin{enumerate}
+    \item (Local Boundedness)
+    \[\exists \delta>0,\exists M\geq 0: \forall x\in I_\delta (x_0),|f(x)\leq M|\]
+    \item (Local Sign Definteness)
+    \[\text{If }f(x_0)>0,\text{then }\exists \delta>0:\forall x\in I_\delta(x_0)\]
+    \end{enumerate}
+\noindent Proof:
+\\Take any $\epsilon>0$, there exists $\delta>0 $ such that 
+\[\forall x\in I_\delta(x_0), |f(x)-f(x_0)|<\epsilon\]
+\[|f(x)|<\epsilon+|f(x_0)|\]
+Take $\epsilon=f(x_0)/2$, then exists $f>0$ such that 
+\[\forall x\in I_\delta(x_0),|f(x)-f(x_0)|<\frac{f(x_0)}{2}\implies f(x)>f(x_0)-f(x_0)/2=f(x_0)/2>0\]
+\\Def:
+\\Let $A\subseteq \mathbb R$, we say $f:A\to \mathbb R$ is continuous in A if $\forall x\in A$, f is continuous at x. We denote this by by $f\in C(A)$
+\subsection{Example}
+\noindent $C((a,b))=\{f:(a,b)\to \mathbb R|\text{ f is continuous at each (a,b)}\}$
+\\$C((a,b))=\{f:[a,b]\to \mathbb R|\text{ f is continuous at each (a,b)}\}$
+\\Note that a closed interval will have no left limit at a and no right limit at b.
+\\a is the left limit of f, b is the right limit of f.
+\subsection{Theorem}
+\noindent Let $f\in C((a,b))$ such that $f(a)>0$ and $f(b)<0$. Then $\exists c\in (a,b):f(c)=0$
+\\Proof:
+\[c = \sup\{\tilde a\in (a,b):f(x)\text{ on }(a,\tilde a)\}\]
+By local sign definiteness, the set is not empty.\\
+We know $b>c$\\
+Claim: f(c)=0
+\end{document}

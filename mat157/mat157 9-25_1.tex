@@ -1,0 +1,111 @@
+\documentclass{article}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{graphicx} % Required for inserting images
+
+\title{mat157 9-25}
+\date{September 2025}
+
+\begin{document}
+
+\maketitle
+
+2 out of the 3 questions for correct and from problem sheet
+\section{Review}
+\begin{itemize}
+    \item Binary Relation: R
+    \item Function (Entire and functional)
+    \item Equivalence Relations (Reflexive, Symmetric, Transative)
+    \item ~ \begin{itemize}
+        \item Equivalence Classes $[x] =\{y\in A, x\sim y\}$
+    \end{itemize}
+\end{itemize}
+\subsection{Theorm}
+Each equivalence relation ~ on A induces a partion (disjoint sets which are subsets of A, the union forms A) on A
+\subsection{Remark}
+Each partition on A induces an equivalence relation on A. x~y if x is in the same partion as y. $y\in [x]\rightarrow (x\sim y)$
+\subsection{Definition (Quotient Space)}
+Let ~ be an equivalence relation on A. Then the set of equivalence classes denoted by $A/\sim=\{[x]|x\in A\}$. is called the quiotient space (modulo ~).
+\\Noting matters except for the equivalence classes. 
+\newpage
+\subsection{Recall}
+Example:
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|l|}\hline
+        A & $\sim$ &A/$\sim$ &\\\hline
+        All triangles & $x\cong y$ &$\{x | x\text{ is a set of congruent triangles}\}$ &Perimeter or area of the triangle\\\hline
+        $\mathbb{Z}$ & $x\equiv y \mod{4}$ &$\{[0],[1],[2],[3]\}$ &\\\hline
+        $\mathbb{R}$& $x=y \vee xy>0$ &$\{\mathbb{R}+,\mathbb{R}-,\{0\}\}$ &\\ \hline
+    \end{tabular}
+    \label{tab:placeholder}
+\end{table}~
+
+\noindent More examples
+\\Consider $\sim$ on $[0,1]^2$ $\forall (x_1,y_1),(x_2,y_2)\in [0,1]^2$
+\begin{itemize}
+    \item $\sim_1$ $(x_1,y_1)\sim(x_2,y_2):=(x_1=x_2\wedge y_1=y_2)\vee(x_1=0\wedge x_2=1\wedge y_1=y_2)\vee(y_1=0\wedge y_2=1\wedge x_1=x_2)\vee(\text{four verticies})$ (This becomes a donut)
+    \item$\sim_2$ $(x_1,y_1)\sim(x_2,y_2):=(x_1=x_2\wedge y_1=y_2)\vee(x_1=0\wedge x_2=1\wedge y_1=y_2)$ (This becomes a tunnel)
+    \item $\sim_3$ $(x_1,y_1)\sim(x_2,y_2):=(x_1=x_2\wedge y_1=y_2)\vee (\{x_1,x_2\}=\{0,1\}\wedge y_1=1-y_2)$ (mobius strip)
+\end{itemize}
+
+\noindent Induced Functions
+\\Let $f.A\rightarrow B$ and $\sim$ is an equivalence relation on A..
+\\Quotient: Can f be considered a functions of $A/\sim$
+\\ \textbf{Natural Idea}
+\\Define: For $[x]\in A/\sim \text{we define } F. A/\sim \rightarrow B$ by $F([x])=f(x)$ 
+\\To be functional...
+\\If [x]=[y], then F([x])=f(x), F([y])=f(y), f(y)=f(x)
+\\As an extra condition, $\forall x,y\in A, \text{ if } x\sim y, f(x)=f(y)$
+\\In this way, $F:A/\sim \rightarrow B$ is called the original factorized through ~
+\\$f:\mathbb{Z}\rightarrow \mathbb{R}, (-1)^{\frac{n(n+1)}{2}}$
+\\If $m\equiv n \mod{4}$ then m=n+4k for some $k\in \mathbb{Z}$ 
+\\odd, odd, even, even
+\\For the last one $f:\mathbb{R}\rightarrow \mathbb{R}, f(x)=sgn(x)$
+
+\section{break}
+Order:
+Def:
+Let R be a binary relation on set A. We say it is a partial order if R is reflexive ($\forall x\in A, xRx$), anti-symmetric ($\forall x,y\in A, (xRy\wedge yRx)\rightarrow x=y$, and transative ($\forall x,y,z \in A, (xRy\wedge yRz)\rightarrow xRz$)
+\\\\Remark 
+\\A partial order is defined often by $\preceq$
+\\\\Example
+\\$(\mathbb{Z},\leq),\ \forall x,y\in \mathbb{Z}, x\preceq y := x\leq y$
+\\$(\mathbb{N}+,/),\ \forall x,y\in N+, x\preceq y := x\leq y$
+\\$(\mathcal{P}(\mathbb{N}),\subseteq),\ \forall x,y\in \mathcal{P}(\mathbb{N}),x\preceq y:=x\subseteq y$
+\\\\More examples
+\\Let A be a set and $\preceq$ is a partial order on A. 
+\\Define $\preceq_-$ on A as $\forall x,y\in A, x\preceq_-y:=y\preceq x$. This is a new partial order.
+\\\\Example
+\\Let A, B be two sets with $\preceq_1,\preceq_2$ respectively
+\\Define $\preceq$ on $A\times B$:
+\\$\forall (a_1,b_1),(a_2,b_2)\in A\times B, (a_1,b_1)\preceq(a_2,b_2):=(a_1\preceq a_2)\wedge (b_1\preceq b_2)$
+\\\\ \textbf{Warning}
+\\Giving A a partial order is not sufficient to claim that each two elements in A can be "compared" (has a relation).
+\\Definition 
+\\We say a partial order($\preceq$) on A is a total order if, in addition to being reflexive, anti-symmetric, and transative, $\forall a,b\in A$ either $a\preceq b$ or $b\preceq a$
+\\Assuming $\preceq$ is a total order, so is $\forall (a_1,b_1),(a_2,b_2)\in A\times B, (a_1,b_1)\preceq(a_2,b_2):=(a_1\preceq a_2\wedge a_1=a_2)\vee (a_1=a_2\wedge b_1\preceq b_2)$
+\subsection{Definition: (Maximal Element)}
+Let (A,$\preceq)$ be a partially ordered set. An element $a\in A$ is called maximal, if $\forall y\in A, a\preceq y,a=y$
+\\a is called a maximum if $\forall y\in A, y\leq a$.
+\\In maximum a dominates every element, but in maximal element it does not have to dominate every other element, just the elements it is related to. Maximum is a maximal element, but a maximal element might not be a maximum.
+\\\\Example:
+\\$A=\{\{1\},\{2\},\{1,3\},\{2,3\}\}$
+\\$\preceq$ on A. $x\preceq y:=x\subseteq y$
+\\maximal elements: $\{1,3\}\ \{2,3\}$
+\\No maximum
+\\\\Example: 
+\\$(\mathbb{N+,\preceq}), \forall p,q\in \mathbb{N},p\preceq q\text{ if } q|p$
+\\Maximum: 1
+\\Example:
+\\$(\mathbb{N}_{>2},\preceq), \forall p,q\in \mathbb{N},p\preceq q\text{ if } q|p$
+\\Maximal: Prime numbers
+\\No maximum
+\subsection{Theorem}
+If $\preceq$ on A is a total order, then each maximal element becomes the unique maximum.
+\\Proof:
+\\let $a\in A$ be maximal. For any $y\in A$.
+\\y=a, y$\preceq a$, $a\preceq y$
+\\\\But if there is a maximum, it does not mean it is a total order (reflexive, antisymmetric, transative)
+\end{document}
+

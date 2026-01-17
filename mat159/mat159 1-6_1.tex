@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amsfonts}
+
+\title{mat159 1-6}
+\date{January 2026}
+
+\begin{document}
+
+\maketitle
+
+\section{Mat159 Analysis II}
+Differentiation $\to $ Integration
+Start with trying to find the area under a curve, you can draw trapezoids or squares to find the area. However, this raises two questions.\\
+1. Does this sum exist?\\
+2. Does this sum converge?\\
+Newton and Lebniz later proved that you can find the area using
+\[F(b)-F(a)=\int_a^bf(x)dx\]
+\[\text{where }F'(x)=f(x),\forall x\in(a,b)\]
+Liouville (1830) Proved that For elliptical integrals have no primitive, that there is no anti-derivative in finite terms elementry terms. This was problematic for celestial orbits and for pendulums, both important in engineering. \\
+\subsection{Primitive (Anti-derivative)}
+\noindent Def: Let $D\subseteq \mathbb{R}$ be open\\
+$f:D\to\mathbb R$ We say $F:D\to \mathbb R$ is a primitive of f if \\
+$\forall x\in D,f(x)=F'(x)$\\
+Does anti-derivative always exists and is this anti-derivative unique?\\
+Uniqueness: No! If $F$ is a primitive, then so is $F + C$ for $C\in\mathbb R$\\
+Prop:\\
+Every primitive of f in a connected domain D differ by a Constant (open interval)\\
+Proof: Assume that $F_1,F_2:D\to\mathbb R$ are both primitives of f.
+\[\forall x\in D,y\in D, y>x\]
+Define $G=F_1-F_2$\\
+\[G(y)-G(x)=G'(\epsilon)(y-x)\]
+This is the $F_1(y)-F_2(y)-F_1(x)+F_2(x)=\int_x^yf(x)dx-\int_x^yf(x)dx$.\\
+Recall: Darboux function: A function that permits the intermediate value theorem.\\
+Note: A darboux function does not have to be continuous.\\
+Theorem: $f:[a,b]\to\mathbb R$ such that $f\in C([a,b])$ and f is differentiable in $(a,b)$. Then f' is Darboux.\\
+Proof: To prove that f' is darboux, we just need to prove that for every value between a and b, f' takes on that value.\\
+Assume an arbitrary $y\in(a,b)$ where $f'(a)>f'(b)$ without the loss of generality. Consider $g:[a,b]\to\mathbb R$ where $g(x)=f'(x)-yx$\\
+Then $g(x)$ achieves and max or min between a and b, not at a because $f'(a)-ya$
+\end{document}

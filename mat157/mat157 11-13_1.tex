@@ -1,0 +1,119 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsfonts,amsmath}
+
+\title{mat157 11-13}
+\date{November 2025}
+
+\begin{document}
+
+\maketitle
+\subsection{Review}
+\noindent Continuous Function
+\\\begin{itemize}
+    \item Local: $\lim_{x\to x_0}f(x)=f(x_0)$\\
+    The behavior near $x_0$ is the same as behavior at $x_0$\\
+    We then have Arithmetic, Order, \\
+    $\lim_{n\to \infty}a_n=x_0\implies \lim_{n\to\infty}f(a_n)=f(\lim_{n\to\infty}a_n)$\\
+    ,Local boundedness and local sign definiteness.\\
+    \item Global: f is continuous everywhere
+\end{itemize}
+\noindent Infinity as the limit
+$f:\mathring{I}_c(x_0)\to\mathbb R$
+\[\lim_{x\to x_0}f(x_0)=+\infty\]
+\[\iff \forall M>0,\exists \delta >0, st\ \forall x\in \mathring{I}_\delta(x_0),f(x)>M\]
+Proposition:
+\\Let $f:(a,b)\to \mathbb R$ such that
+\begin{enumerate}
+    \item f is bounded from above on $(a,b)$
+    \item f is monotonically increasing
+\end{enumerate}
+Then $\lim_{x\to b^-}f(x)$ exists.\\
+Note if f is bounded above on $\mathring{I}_c(x_0)$\\
+Let $g:(a,c)\to\mathbb R$, then g is well defined for the punctured interval.\\
+$\delta \to \sup f(x),x\in\mathring{I}_c(x_0)$\\
+If $\delta$ decreases, $g(\delta)$ decreases.\\
+If f is also bounded from below, then $\lim_{\delta\to0+}g(\delta)$ exists.\\
+This limit is called the limit superior of f and $x_0$ and is denoted by 
+\[\lim_{x\to x_0}\sup f\]
+Theorem:\\
+\[\lim_{x\to x_0}f(x)\text{ exists }\iff \lim_{x\to~x_0-}f(x)=\lim_{x\to~x_0+}f(x)\iff \lim_{x\to x_0}\sup f=\lim_{x\to x_0}\inf f\]
+\subsection{Uniform Continuity}
+\noindent Def:
+\\Let $f:A\to\mathbb R$ be a real valued function, with $A\subseteq \mathbb R$. We know f is uniformly continuous on A if 
+\[\forall \epsilon>0,\exists \delta>0, \text{st } \forall x_0\in A, \forall x\in I_\delta(x_0),|f(x)-f(x_0)|<\epsilon\]
+The difference here from continuity is the definition of $x_0$ after $\delta$
+\[\forall x_0\in A,\forall \epsilon>0,\exists \delta>0, \text{st } \forall x\in I_\delta(x_0),|f(x)-f(x_0)|<\epsilon\]
+\subsection{Example}
+\[f:(0,+\infty)\to\mathbb R,\ f(x)=\frac{1}{x}\]
+Looking at $\delta$, we see that as $x_0$ approaches 0, we need to pick a smaller $\delta$. \\As our $\delta$ decreases, our $\delta$ converges to 0.  
+\[g:(0,+\infty)\to\mathbb R,\ f(x)=x^2\]
+As $x_0$ increases, our $\delta$ also decreases because the values become larger and larger. 
+\subsection{Topology in $\mathbb R$}
+\noindent Def:\\
+Let $A\subseteq \mathbb R$, we say that $x_0\in A$ is a/an
+\begin{itemize}
+    \item interior point: if $\exists \delta >0,st\ (x_0-\delta,x_0+\delta)\subseteq A$
+    \item boundary point: if $\forall \delta>0,(x_0-\delta,x_0+\delta)\cap A\not = \emptyset,(x_0-\delta,x_0+\delta)\cap A^c\not = \emptyset$
+\end{itemize}
+\noindent $\mathring S=\{x\in \mathbb R,\text{ x is an interior point of S}\}$
+\\$\partial S=\{x\in\mathbb R,\text{ x is a boundary point of S}\}$
+\\ Def: A set $S\subseteq \mathbb R$ is called
+\begin{itemize}
+    \item open, if $S\cap \partial S=\emptyset, ie\ (S=\mathring S)$
+    \item Closed if $\partial S\subseteq S$
+\end{itemize}
+\noindent Proposition: \\
+S is open $\iff \mathring S$ is closed\\
+Proof:\\
+\[S\text{ is open}\implies S\cap \partial S=\emptyset\implies \partial S\subseteq S^c \implies \partial S^c\subseteq S^c\]
+Proposition:\\
+The union of finitely many open sets is open.\\
+The union of finitely many closed sets is closed.\\
+Proof:\\
+Let $\{O_i\}_{1\leq i \leq n}$ be a finite collection of open sets.\\
+\[\forall x_0\in \bigcup_{i=1}^n O_i\implies x_0\in O_{i^*},1\leq i^*\leq n\text{ for some }i^*\]
+\[\text{and }\exists \delta >0, st\ I_\delta(x_0)\subseteq O_{i^*}, \text{ thus } I_\delta(x_0)\subseteq \bigcup_{i=1}^nO_i\]
+Now let $C_i,1\leq i \leq n$ for a finite collection of closed sets, and consider $(\bigcup_{i=1}^nC_i)^c=\bigcap_{i=1}^nC_i^c$.\\
+If $x_0\in \bigcap_{i=1}^nC^c_i\implies \forall 1\leq i \leq n. x\in C_i^c$ and $\exists \delta_i>0$ such that $I_{\delta_i}(x_0)\subseteq C_i$. \\
+Pick $\delta = \lim_{1\leq i \leq n}\delta_i>0$ and $I_\delta(x_0)\subseteq C_i$, thus $C_i$ is open and $C_i^c$ is closed.
+\subsection{Example}
+\noindent Let $A_n=[\frac{1}{n},1-\frac{1}{n}],\ n\geq 1$\\
+\[\bigcup_{i=1}^n A_i=(0,1)\]
+Let $A_i=(-\frac{1}n,\frac{1}{n})$
+\[\bigcap_{i=1}^n A_i={0}\]
+$\emptyset$ is vacuously closed and open.\\
+$\mathbb R$ is open and closed.\\
+Def:\\
+Let A be a set. We say that A is disconnected if $\exists$ open sets $U,V\not =\emptyset$ if\\
+$U\cap V=\emptyset$\\
+$U\cap A\not = \emptyset, V\cap A \not = \emptyset$\\
+$A\subseteq U\cup V$\\
+If A is not disconnected, it is connected
+\subsection{Example}
+\noindent$ A = (0,1)\cup (2,3)$ is open\\
+$B= [0,1)\cup [2,3]$ is open, take $(-1,1)\cup (1.9,3.1)$ for example\\
+Proposition:\\
+Every connected set in $\mathbb R$ is an interval.\\
+Every open set in $\mathbb R$ is a countable union of disjoint open intervals
+\[A=\bigcup_{i\in \delta}(a_i,b_i)\]
+A connected component of an open set is one of the intervals in this union.\\
+Infinite interval: At least one connected component stretches to infinity. \\
+Proof:\\
+Start with $A\subseteq \bigcup_{i\in \delta}(a_i,b_i)$ \\
+\[\forall x\in A, \exists \delta >0, st (x-\delta,x+\delta)\subseteq A\]
+Take $S_s$ and $S_l$ such that 
+\[S_s=\{y\in \mathbb R|y>x,(x,y)\subseteq A\}\]
+If $S_s$ is unbounded, ie the open interval containing x is unbounded from above, take $b=+\infty$.\\
+Otherwise $S_s$ is bounded, then take $b=\sup(S)$\\
+\[S_l=\{z\in \mathbb R|z<x,(z,x)\subseteq A\}\]
+If $S_l$ is unbounded, ie the open interval containing x is unbounded from below, take $a=-\infty$.\\
+Otherwise $S_l$ is bounded, then take $a=\inf(S)$\\
+
+We can now assemble a union of open sets which contains all elements of A, with many repeats and we can see that 
+\[A\subseteq \bigcup_{i\in \delta}(a_i,b_i)\]
+Before continuing, we can prove that $\bigcup_{i\in \delta}(a_i,b_i)$ is countable. Take the largest rational number in the set, which there always is because $a_i<b_i$. This creates an injective function which maps each open interval to $\mathbb Q$ 
+
+\[\exists U,V,st\ U\cap V=\emptyset\wedge U\cap A\not = \emptyset\wedge V\cap A\not = \emptyset\wedge A\subseteq U\cup V\]
+\[\forall U,V\text{ open sets}, \]
+\end{document}

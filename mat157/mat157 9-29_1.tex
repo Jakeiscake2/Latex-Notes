@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{graphicx} % Required for inserting images
+
+\title{mat157 9-29}
+\date{September 2025}
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+sps = suppose
+\subsection{Q1}
+\begin{enumerate}
+    \item Reflexivity 
+    \item antisymmetry
+    \item transative
+    \item total
+\end{enumerate}
+Reflexive
+\\$(a,b)\preceq (a,b)$ because $a=a\wedge b\preceq_2b$
+
+\noindent \\Antisymmetric
+\\$(a,b)\preceq(c,d)\preceq (a,b)$
+\\Claim a=c
+\\Proof suppose not then $a\preceq_1 c$ or $c\preceq_1 a$
+\\So $b\preceq_2 d\preceq_2 b\implies b=d$ 
+
+\noindent\\Transative:
+\\too much case work i dont wanna do this - ta
+\\$(a,b)\preceq(c,d)\preceq (e,f)$
+\\Case 1: $a\preceq_1 c\wedge a\not = c$
+\\
+
+\noindent\\Total
+\\Let $(a,b),(c,d)\in A\times B$ be arbitrary 
+\\Case 1: $a=c$
+\\Either $b\preceq_2 d$ or $d\preceq_2 b$ or $b=d$ since $\preceq_2$ is total
+\\If $b=d$ then (a,b)=(c,d)
+\\Case 2: $a\not =c$
+\\Either $a\preceq_1 c$ or $c\preceq_1 a$ since $\preceq_2$ is total
+
+\subsection{Q2}
+Scratch Work
+\\\fbox{
+\begin{minipage}{30em}
+Suppose $ x\sim y$ and $y\sim z$
+\\4 cases
+\\$x|y\wedge y|z$ True
+\\$x|y\wedge z|y$ y is a common factor of both but not necessarily true
+\\$y|x \wedge y|z$ x and z are common factors but not necessarily divisible 
+\\$y|x \wedge z|y$ True
+\end{minipage}}
+
+\noindent Claim: No it is not
+\\Proof: Let x=2, y=6, z=3
+\\Then $x|y \implies x\sim y$
+\\and $z|y \implies y\sim z$
+\\but $x\not | z \wedge z \not | x$
+
+\subsection{Q3}
+Reflexive: $(x,y)\sim(x,y)$ $\lambda=1$
+\\Symmetric: Suppose $(x,y)\sim (z,w)$ then for some $\lambda$
+
+\noindent You get a unit circle with the origin.
+\\Equivalence classes are lines going through the origin to x,y not including the origin.
+\\Quiotent class can be a unit circle, including the origin
+\end{document}

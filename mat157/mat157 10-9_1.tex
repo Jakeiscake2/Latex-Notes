@@ -1,0 +1,150 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx} % Required for inserting images
+
+\title{mat157 10-9}
+\date{October 2025}
+
+\begin{document}
+
+\maketitle
+\section{Week 6}
+\noindent Dedekind cut ($\alpha=A|A'$
+\\$\mathbb{Q}\rightarrow\mathbb{R}$
+\\Field
+\\(1)->(16) Order
+\\Archimedes Property holds
+\subsubsection{Remark}
+\noindent Archimedes P holds for R.
+\\Actually, $\forall a=A|A'\in \mathbb{R}$
+\\Pick $y\in A'\subseteq\mathbb{Q}$, then 
+\\exists an $z\in \mathbb{N}$ such that z>y
+\\Identify z with $z=B|B'$
+\\$a<z$
+\subsection{Completness of $\mathbb{R}$}
+\noindent Dedekind Completeness
+\\LUB
+\\Cauchy-Contor Theory
+\\Borel-Lebesgue theorem
+\\Bolzano–Weierstrass theorem
+\\Cauchy Completeness
+
+\section{Dedekind Completeness Theorem}
+\noindent Tool: Dedekind Cut
+\\Theorem: Let $A,B\subseteq \mathbb{R}$ such that B dominates A. ($\forall x\in A,\forall y\in B, x\leq y$)
+\\Then $\exists c\in \mathbb{R}$ such that 
+\\$\forall x\in A,\forall y\in B, x\leq c\leq y$
+\subsection{Remark}
+\noindent If A and B are no contacting each other, there is no issue, pick a c.
+\\Proof: $x\in A,y\in B$ we use $x=A_x|A'_x,y=B_y|B_y'$ to represent their Dedekind cut, respectively.
+\\Let $c=\bigcup_{x\in A} A_x,C'=\mathbb{Q}/C$
+\\Note that $A\not = \emptyset, \exists x_0\in A, \text{ thus } A_{x_0}\not \emptyset$
+\\Moreover, $B\not = \emptyset, \text{ hence } \exists y_0\in B, \text{ thus }B'_{y_0}\not = \emptyset$
+\\$c\cap B'_{y_0}=\emptyset$
+\\(2): This C, C' forms a non-trivial parition of Q
+\\Let $z\in C=\bigcup_{x\in A}A_x$ and $z^\sim <z$
+\\$z\in C\implies z\in A_{x^*}$ for some $x^*\in A$
+\\$\implies z^\sim \in A_{x^*}$
+\\$\implies z^\sim \in C$
+\\Hence, C is closed downwards.
+\\(3): Assume to the contrary that $z^*$ is a maximum of C. 
+\\$a^-$ portion????, $z^*\in C$
+\\This implies that $z^*\in A_{x_1}$ for some $x_1\in A$
+\\That implies that $z^*$ is a maximum of $A_{x_!}$ Contradicting that A has no maximum.
+\\Thus C does not permit any maximum.
+\\(1)+(2)+(3): c=C|C'$\in \mathbb{R}$
+\\$\forall x_2\in A, A_{x_2} \subseteq \bigcup_{x\in A}A_x=C$
+\\Thus $x_2\leq c$
+\\$\forall y\in B, \forall x\in A, A_x\subseteq B_y$
+\\$\implies \forall y\in B, C=\bigcup_{x\in A}A_x\subseteq B_y$
+\\$\implies \forall y\in B, c\leq y$
+\\Remark: c is not unique, but this does give the smallest possible c
+
+\section{Theorem of Least Upper Bound}
+\noindent Tool: sup and inf
+\\Def: Let A be a non-empty set, A number $s\in \mathbb{R}$ is an upper bound of A if for $\forall x\in A, x\leq s$. 
+\\We call the minimum of all upper bounds of A the sup.
+\\The opposite of inf
+\\Def: Let A be a non-empty set, A number $s\in \mathbb{R}$ is a lower bound of A if for $\forall x\in A, x\geq s$. 
+\\We call the maximum of all lower bounds of A the inf.
+\subsection{Example}
+\noindent $A=(-\infty,1]$ sup A=1
+\\$A=(-\infty,1)$ sup A=1
+\\$A=\{1+\frac{1}{n}|n\in \mathbb{N}\}$ sup A=1
+\subsection{Theorem of Least Upper Bound}
+\noindent Any set $A\subseteq \mathbb{R}$ bounded from above permits a least upper bound.
+\\Proof:
+\\Let $B=\{u\in \mathbb{R}|\text{u is an upper bound of A}\}=\emptyset$
+\\Now B dominates A
+\\Now, using the Dedekind Completeness Theorem, $\forall x\in A, \forall y\in B, \exists c\in \mathbb{R},x\leq c\leq y$
+\\c is now the least upper bound (Yippee!)
+\subsection{Remark}
+\noindent If sup $A\in A$, then the sup A = max A
+\\For a set bounded from above, a maximum may not exists, but a supreme will exist. 
+\\Remark:
+\\In practice, to prove that sup A = $ x^*$
+\\We show two things
+\\\begin{enumerate}
+    \item $\forall x\in A, x\leq x^*$ ($x^*$ is an upper bound)
+    \item $\forall \epsilon > 0, \exists x_\epsilon \in A, st\ x_\epsilon < x-\epsilon$
+\end{enumerate}
+\subsection{Example}
+\noindent Show that sup A = 1, where
+\\$A=\{1-\frac{1}{n}|n\in \mathbb{N}\}$
+\\Proof: 
+\\$\forall x\in A, x=1-\frac{1}{n}$ for some $n\in \mathbb{N}$ thus, 
+\\$x\leq 1$
+\\\\$\forall \epsilon>0$, pick x = $1-\frac{1}{n^*}$ where $n^*>tba$
+\\$1-\frac{1}{n^*}>1-\epsilon$
+\\$\frac{1}{n^*}<\epsilon$
+\\$n^*>\frac{1}\epsilon$
+\\$n^* > \frac{1}{\epsilon}$
+\\thus, $x=1-\frac{1}{n^*}>1-\frac{1}{\frac{1}{\epsilon}}=1-\epsilon$
+\subsection{Example}
+\noindent Let A, B be non-empty sets bounded from above.
+\\$A+B=\{x+y\ |\ x\in A,y\in B\}$
+\\Prove that sup(A+B) = sup(A)+sup(B)
+\\Proof:
+\\For any $\forall z \in A+B$, z=x+y for some $x\in A, y\in B$
+\\$z\leq $ sup(A) + sup(B)
+\\Thus, z is an upper bound
+\\$\forall \epsilon>0$
+\\$\exists x^*\in A, st\ x^*>$ sup(A) - $\frac{\epsilon}{2}$
+\\$\exists y^*\in B, st\ y^*>$ sup(B) - $\frac{\epsilon}{2}$
+\\It follows that 
+\\$x^*+y^*>supA+supB-\epsilon$
+\section{Cauchy-Cantor Theorem}
+\noindent Tool: Closed Nested Interval
+\\Def: We say $\{A_u\}_{a\in \mathbb{N+}}$ a nested set if, 
+\\$A_1\supseteq A_2\supseteq A_3\supseteq \dots \supseteq A_n\supseteq\dots$
+\\If each set is a closed interval. ($A_n=[a,b]$)
+\\then we call it a nested closed interval.
+\subsection{Cauchy-Cantor Theorem}
+\noindent Let ${I_k}_{k\in \mathbb{N}+}$ be a nested closed interval,
+\\Then $\bigcap_{k \in \mathbb{N+}}I_k\not =\emptyset$
+\\Proof:
+\\$\forall n,m\in \mathbb{N}+, (\text{without the loss of generality})\ n\leq m, I_n\supseteq I_m$
+\\$a_n\leq b_m, a_m\leq b_m$
+\\Thus, each $b_k$ bounds each $a_l, \forall k,l\in \mathbb{N}+$ ($b_k\geq a_l$)
+\\Now, let $A=\{a_k|k\in \mathbb{N}+\}$
+\\$B=\{b_k|k\in\mathbb{N}+\}$
+\\Then, 
+\\$\forall l\in\mathbb{N}+, a_l\leq \sup A\leq \inf B\leq b_l$
+\subsection{Remark}
+\noindent The actually tells you that [sup A, inf B] = $\bigcap_{k\in \mathbb{N}+}I_k$
+\section{Borel-Lebesgue Theorem}
+\noindent Tools: Open cover
+\\Def: A family of sets $\{\bigcup_a\}_{a\in k}$ is called a cover of a set A, if $A\subseteq \bigcup _{a\in k}\bigcup_a$ 
+\\The set of $\{\bigcup_a\}_{a\in V}\ V\subseteq k$ is a sub-cover, if $A\subseteq \bigcup_{a\in \mathbb{N}}\bigcup_a$
+\subsection{Example}
+\noindent Let A=[0,1]
+\\k={1} $\bigcup_1=(-1,0)\ A\subseteq \bigcup_1$
+\\k={1,2} $\bigcup_1=(-1,1)\ \bigcup_2=(0,2), A\subseteq \bigcup_{a\in \{1,2\}}\bigcup_a$
+\\$\forall k\in\mathbb{N}+,\bigcup _k=(-\frac{1}{k},1], A\subseteq \bigcup_{k\in \mathbb{N}+}\bigcup_k$
+\\$A\subseteq \bigcup_{x\in [0,1]}\{x\}$
+\subsection{Borel-Lebesgue Theorem}
+\noindent Let I=[a,b] be a closed interval, then any open cover (each $\bigcup_a$ is an open interval) permits a FINITE subcover.
+\\Proof: Assume to the contrary that $\{\bigcup_x\}_{a\in k}$ is a cover of I, with no finite subcover.
+\\Key Idea: Bisection!
+\end{document}

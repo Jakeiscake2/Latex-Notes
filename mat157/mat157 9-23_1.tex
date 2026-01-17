@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{graphicx} % Required for inserting images
+
+\title{mat157 9-23}
+\date{September 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Review}
+Binary relations
+Functions
+\begin{itemize}
+    \item entire, functional
+\end{itemize}
+
+
+\noindent Equivalence Relations
+\\Example:
+\\$f:\mathbb{R}\rightarrow \mathbb{R},\begin{cases}
+f(x)=1,\  x>0
+\\f(x)=0,\ x=0
+\\f(x)=-1,\ x<0
+\end{cases}$
+\\This function is often called the sign function and denoted sgn(x). 
+\\We can define $A=\{\mathbb{R}-,\{0\},\mathbb{R+}\}$
+\\Now we can map $sgn:\mathbb{R}\rightarrow\mathbb{R}$ as $sgn:A\rightarrow\mathbb{R}$
+\\Why can we consider two positive or two negative elements the same? (We need to impose some property on the domain)
+\\Why sgn can be considered as a function of A? (We also need some property of the function itself)
+
+\noindent Def (Equivalence Relation)
+\\Left A be a set, and R is a binary relation of A ($R\subseteq A\times A$)
+\\We say that R is 
+\\reflexive if $\forall x \in A, xRx$
+\\symmetric if $\forall x,y\in A, xRy\implies yRx$
+\\transative if $\forall x,y,z\in A, (xRy \wedge yRz)\implies xRz$
+\\We say R is an equivalence realtion, often denoted by ~, if it is reflexive, symmetric, and transitive.
+\\\\Example:
+\\Let $\mathbb{Z}$ be the set of all integers
+\\Define ~ on $\mathbb{Z}$
+\\$\forall x \in \mathbb{Z},\ x \sim y :=x\equiv y \mod{4}$
+\\Reflexive: $\forall x \in Z, x-x=0$ and 4|0
+\\Symmetry: $\forall x,y \in Z, x\sim y\implies 4|x-y\implies 4|y-x\implies y\sim x$
+\\Transative: $\forall x,y,z\in Z, \begin{cases}
+    x\sim y \implies 4|x-y\\
+    y\sim z \implies 4|y-z
+\end{cases}\implies 4|x-z\implies x\sim z$
+\\\\Example:
+\\Let ~ be a relation on R given by 
+\\$\forall x,y\in R, x\sim y := xy>0 \vee x=y=0$
+\\Reflexive: $\forall x\in R, x^2 \geq 0$ so, $x>0 \vee x=0$
+\\Symmetry: $\forall x,y\in R, x\sim y \implies \begin{cases}
+    xy>0\implies yx>0\\
+    x=y=0\implies y=x=0
+\end{cases}\implies y\sim x$
+\\Transative: $\forall x,y,z \in R$
+\\If y=0: $x\sim y \wedge y\sim z$ means x=0 and z=0 and x=z=0
+\\If $y\not = 0\begin{cases}
+    x\sim y \implies xy>0\\
+    y\sim z \implies yz>0
+\end{cases}\implies xy^2z>0\implies xz>0$ since $y^2>0$, thus x~z.
+
+\noindent Def (Equivalence Class)
+\\Let ~ be an R on A, for any $x\in A$, the set $[x]=\{y\in A,y\sim x\}$
+\\Remark 
+\\$\forall x\in A, [x]\not = \emptyset$
+\\$x\sim y\implies [x]=[y]$
+\\$x\not \sim y\implies [x]\cap[y]=\emptyset$
+
+/noindent Def (Partition)
+\\Let A be a set, A family of subsets $\{V_\alpha\}_{\alpha\in I}\ (\text{each }V_\alpha \subseteq A)$
+\\This is called a partition of A if
+\\$\underset{\alpha\in I}{\bigcup} V_\alpha = A$
+\\$\forall \alpha, \beta \in I, \alpha\not = \beta \implies V_\alpha \cap V_\beta=\emptyset$
+\\This simplifies our functions as a simpler space
+\end{document}

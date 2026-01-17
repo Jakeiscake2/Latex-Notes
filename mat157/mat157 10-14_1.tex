@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx} % Required for inserting images
+
+\title{mat157 10-9}
+\date{October 2025}
+
+\begin{document}
+
+\maketitle
+\section{Week 7}
+\subsection{Borel-Lebesgue Theorem}
+\noindent Let I=[a,b] be a closed interval, then any open cover (each $\bigcup_a$ is an open interval) permits a FINITE subcover.
+\\Proof: Assume to the contrary that $\{\bigcup_x\}_{a\in k}$ is a cover of I, with no finite subcover.
+\\Key Idea: Bisection!
+\\Imagine a closed interval with [a,b] and $\frac{a+b}{2}$ as the middle.
+\\$[a,\frac{a+b}{2}]\subseteq U_{a\in k_1}U_a$ This is the first half.
+\\$[\frac{a+b}{2},b]\subseteq \bigcup_{a\in k_2}U_a$ This is the second half.
+\\If both are finite, then the union would be finite, thus at least one of them, either the first half or the second half is infinite.
+\\Without the loss of generality, assume that it is the first half which is infinite. 
+\\We can then split it in two again. Creating a nested closed interval. 
+\\By the Cauchy-Cantor Theorem, $\exists c\in \bigcap_{u\in \mathbb{N}}I$
+\\Remark: It can be shown that the $\bigcap_{u\in \mathbb{N}}I$ is {c}
+\\In particular, $c\in I\subseteq\bigcup_{a\in k}\bigcup_a$
+\\$c\in \bigcup_{a^*}$ for some $a^*\in k$
+\\There must be some open cover which contains this c. Let the open cover be $(a^*,b^*)$
+\\$c-a^*>0$
+\\$b^*-c>0$
+\\Let l = $\min(c-a^*,b-c)$
+\\c is either on the righter or left side.
+\\Pick n>>1, so that $|I_n|=\frac{b-a}{2^n}<l$
+\\and $I_n\subseteq \bigcup_{a^*}$
+\\This contradicts the statement that the smallest part must permit no finite subcover. \\Thus, proof by contradiction.
+\section{Bolzano–Weierstrass theorem}
+\noindent Tool: Limit point
+\\Def: 
+\\Let $A\not = \emptyset $ be a subset of $\mathbb{R}$. We say that $p\in \mathbb{R}$ is a limit point of A, if any open neighborhood of p (is an open interval containing p) contains at least one point $x\in A$ in it and $x\not = p$.
+\\Remark: If there is "at least one point", there is an infinite amount of points.
+\subsection{Example}
+\noindent A=[0,1)
+\\$L=\{x\in\mathbb{R}|x\text{ is a limit point of A}\}$
+\\=[0,1]
+\subsection{Example}
+\noindent $A=\mathbb{Q}$
+\\$L=\{x\in\mathbb{R}|x\text{ is a limit point of A}\}$
+\\$=\mathbb{R}$
+\subsection{Example}
+\noindent $A=[0,1]\cup\{2\}$
+\\$L=\{x\in\mathbb{R}|x\text{ is a limit point of A}\}$
+\\$=[0,1]$
+\subsection{Bolzano–Weierstrass theorem}
+\noindent Let A be any infinite set in $\mathbb{R}$
+\\If A is bounded, then $L\not = \emptyset$
+\\$L=\{x\in\mathbb{R}|x\text{ is a limit point of A}\}$
+\\Proof:
+\\Since A is bounded, $\exists a,b\in \mathbb{R}$, $a<b$, such that 
+\\$A\subseteq [a,b]$
+\\For the sake of contradiction, assume that $L_A=\emptyset$
+\\Let $x\in [a,b]$, then $x\not \in L_A$
+\\Then we can find an open neighborhood $V_x$ of x such that $V_x\cap A$ has at most finitely many elements. 
+\\$[a,b] \subseteq \bigcup_{x\in [a,b]}V_x$
+\\By Borel-Lebesgue theorem, $\exists k_1,k_2,\dots,k_N\in \mathbb{N}$
+\\$A\subseteq [a,b]\subseteq \bigcup_{1\leq i \leq \mathbb{N}}V_{k_i}$
+\\However, this implies that A is finite, and by contradiction the proof is true.
+\end{document}

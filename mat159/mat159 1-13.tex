@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage{amsmath,amsfonts}
+\usepackage{graphicx} % Required for inserting images
+
+\title{mat159 1-13}
+\date{January 2026}
+
+\begin{document}
+	
+	\maketitle
+	\section{Week 2}
+	\subsection{Review}
+	Indefinite Integrals
+	\begin{itemize}
+		\item Existence / Uniqueness
+		\item Method of integration
+		\begin{itemize}
+			\item Linearity
+			\item formal invariance $\to $ substitution
+			\item derivation $\to$ ISP
+		\end{itemize}
+	\end{itemize}
+	Recall:\\
+	\[\begin{split}
+		d(fg)&=fdg-gdf\\
+		&=fg'dx-gf'dx
+	\end{split}\]
+	\[\implies \int fg'dx=fg-\int gf'dx\]
+	\subsubsection{Example}
+	$\int\arctan x\ dx$\\
+	$=\underbrace{\arctan x*x}_{fg} -\underbrace{\int x\ d\arctan x}_{g df}$\\
+	$=\arctan x*x -\frac{1}{2}\int \frac{1}{1+x^2}d(x^2+1)$\\
+	$=\arctan x *x -\frac{1}{2}\ln(1+x^2)+C$
+	\subsubsection{Example}
+	\[\int \underbrace{\ln x}_f \underbrace{dx}_g\]
+	\[=\underbrace{x\ln x}_{fg} -\int \underbrace{xd\ln x}_{gdf} \]
+	\[=x\ln x -\int x*\frac{1}{x}dx\]
+	\[=x(\ln x-1)+C\]
+	\subsection{R[x] Polynomial over $\mathbb R$}
+	$f=a_nx^n+a_{n-1}x^{n-1}+\dots +a_1x+a_0, \forall 0\leq j\leq n, a_k\in \mathbb R, a_n\not = 0$\\
+	$\deg(f)=n$\\
+	Special Case: $f=c,\ c\in\mathbb R$, then $\deg(f)=0\text{ or }-\infty$ depending on your use case\\
+	Division Algorithm holds for $\mathbb R[x]$\\
+	$g|f$ then $f=g*g+v$, where $\deg(v)<\deg(g)$\\
+	$\mathbb R$ is not algebraically closed.\\
+	Example: $x^2+1$\\
+	$\mathbb C$ is algebraically closed.\\
+	\begin{itemize}
+		\item Every function in $\mathbb C$ has a root in $\mathbb C$
+		\item Every root of a function in $\mathbb C$ is in $\mathbb C$
+		\item Every function in $\mathbb C$ can be decomposed into linear components.
+	\end{itemize}
+	\[\mathbb{R\subseteq C}\]
+	If $\omega\in \mathbb{C\backslash R}$ is a root of $f=a_xx^n+a_{n-1}x^{n-1}+\dots +a_1x+a_0$, then so is $\overline{\omega}$.\\
+	\[f(\omega)=a_n\omega^n+a_{n-1}\omega^{n-1}+\dots+a_1\omega+a_0=0\]
+	Take the conjugate on both sides.\\
+	\[\overline{f(\omega)}=\overline{a_n\omega^n+a_{n-1}\omega^{n-1}+\dots+a_1\omega+a_0}=\overline{0}\]
+	\[\overline{a_n\omega^n+a_{n-1}\omega^{n-1}+\dots+a_1x+a_0}=\overline{0}\]
+	$\overline{a+b}=\overline{a}+\overline{b}$ so we can split this up, furthermore, $a_n,a_{n-1},a_{n-2},\dots$ are all in $\mathbb R$, so $\overline{a}=a$.\\
+	\[a_n\overline{\omega^n}+a_{n-1}\overline{\omega^{n-1}}+\dots+a_1\overline{\omega}+a_0=0\]
+	Thus, the conjugate of $\omega$ is also a root.
+\end{document}

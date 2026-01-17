@@ -1,0 +1,87 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amsfonts}
+\title{mat157 11-20}
+\date{November 2025}
+
+\begin{document}
+
+\maketitle
+\section{Review}
+\noindent Compact Set\\
+$P\subseteq Q$ is compact if evert open cover fo S permits a finite subcover. \\
+Theorem (Heine-Borel) Compact $\iff$ Close and bounded.\\
+Proposition:\\
+If $S\not = \emptyset$ is compact, then S achieves a finite maximum and minimum. \\
+Continuous function on compact Sets:\\
+Lemma: If $f:A\subseteq \mathbb R\to \mathbb R$ is continuous and $S\subseteq A$ is compact, then $f(S)$ is compact.\\
+Proof:\\
+Let $\{V_\alpha\}_{\alpha\in J}$ be an open cover of $f(S)$. \\
+Now, 
+\[f(S)\subseteq \bigcup_{\alpha\in J}V_\alpha\implies S\subseteq f^{-1}(f(S))\subseteq f^{-1}(\bigcup_{\alpha\in J}V_\alpha)=\bigcup_{\alpha\in J}f^{-1}(V\alpha)\implies S\subseteq U_{1\leq h \leq H}f^{-1}(V_{\alpha_h})\]
+\[\implies f(S)\subseteq f(\bigcup_{1\leq h\leq H}f^{-1}(V_{\alpha_h}))=\bigcup_{1\leq h\leq H}f(f^-1(V_{\alpha_h}))\subseteq \bigcup_{1\leq h\leq H}V_{\alpha_h}\]
+Thus,
+\[f(S)\subseteq \bigcup_{1\leq h\leq H}V_{\alpha_h}\]
+and since $f(S)$ is a subset of a finite subcover, $f(S)$ is compact.\\
+Proposition:
+Let $f:A\subseteq \mathbb R\to \mathbb R$ be continuous and $S\subseteq A$ be compact, then
+\begin{enumerate}
+    \item f is bounded on S (Proof: f(S) is bounded)
+    \item f achieves max and min (Proof: f(S) is compact)
+    \item f is uniformlly continuous on S
+\end{enumerate}
+Proof:\\
+Let x be any point in S, then, $\forall \epsilon>0,\exists I_{\delta(x)}(x)\text{ st }\forall y\in I_{\delta(x)}(x),|y-x|<\delta,|f(y)-f(x)|<\epsilon$.\\
+Repeat this process for each point in S, we see $S\subseteq \bigcup_{x\in S}I_{\frac{\delta(x)}{2}}(x)$.\\
+By Borel-Lebeguese Theorem, $S\subseteq \bigcup_{1\leq k \leq m} I_{\frac{\delta(x_i)}{2}}(x_i)$\\
+Now let $\delta^* = \min_{1\leq k \leq n}\delta(x_i)/3$.\\
+Now for any $x\in S$, and for any $y\in I_{\delta^*}(x)$. Since $x\in S$, $x\in I_{\frac{\delta(x_k)}{2}}({x_k})$ for some $1\leq k \leq m$.
+\[|y-x_k|=|y-x+x-x_k|\leq |y-x|+|x-x_k|<\frac{\delta(x_k)}{2}+\frac{\delta(x_k)}{2}=\delta(x_k)\]
+\[|f(y)-f(x)|=|f(y)-f(x)+f(x_k)-f(x_k)|=|f(y)-f(x_k)|+|f(x_k)-f(x)|<\epsilon+\epsilon=2\epsilon\]
+Example:\\
+Let $f:A\subseteq \mathbb R\to \mathbb R\text{ st }\exists C>0 \text{ st }$
+\[\forall x,y\in A, |f(x)-f(y)|\leq C|x-y|\]
+This function is uniformly continuous on A, simply pick $\delta= \epsilon C$. This function goes to zero as $\delta$ goes to 0, satisfying uniformly continuous.\\
+A lipschitz function is uniformly continuous\\
+Differentiable function:\\
+Def: Derivation\\
+Let $f:I_c(x_i)\to \mathbb R$ for some c $>$ 0.
+We call the limit 
+\[\lim_{\Delta x\to 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}\]
+the derivative of f at $x_0$ and is denoted as $f'(x_0)$.
+\subsection{Example}
+\[f:\mathbb{R\to R},\ x\mapsto c\]
+At any $x_0\in \mathbb R$
+\[\lim_{\Delta x\to 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}=\lim_{\Delta x \to 0}\frac{c-c}{\Delta x}=\lim_{\Delta x\to 0}0=0\]
+
+\[f:\mathbb{R\to R},\ x\mapsto cx\]
+At any $x_0\in \mathbb R$
+\[\lim_{\Delta x\to 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}=\lim_{\Delta x \to 0}\frac{c\Delta x}{\Delta x}=\lim_{\Delta x\to 0}c=c\]
+
+\[f:\mathbb{R\to R},\ x\mapsto cx^2\]
+At any $x_0\in \mathbb R$
+\[\lim_{\Delta x\to 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}=\lim_{\Delta x \to 0}\frac{c(x^2+2x\Delta x+\Delta x^2)-cx^2}{\Delta x}=\lim_{\Delta x\to 0}\frac{2cx\Delta x+c\Delta x^2}{\Delta x}=c\]
+
+\subsection{Arthimetic}
+\noindent $f'(x)$ and $g'(x)$ exists at x.\\
+\[(f+g)(x)=f(x)+g(x)\]
+\[(f\circ g)(x)=\lim_{\Delta x\to 0}\frac{(f\circ g)(x+\Delta x)-(f\circ g)(x)}{\Delta x}\]
+\[\lim_{\Delta x\to 0}\frac{f(x+\Delta x)g(x+\Delta x)-f(x)g(x)}{\Delta x}\]
+\[\lim_{\Delta x\to 0}f(x+\Delta x)\frac{g(x+\Delta x)-g(x)}{\Delta x}+g(x)\frac{f(x+\Delta x)-f(x)}{\Delta x}\]
+\[=f(x_0)g(x)+g(x_0)f(x)\]
+Proposition: If $f:I_c(x_0)\to \mathbb R$ is such that $f'(x)$ exists, then f is continuous at $x_0$.\\
+\[\lim_{\Delta x\to 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}=f'(x)\in\mathbb R\]
+Thus, $\exists c>\delta >0, \text{ st }\forall x\in I_\delta(x_0), |f(x)-f(x_0)|<(|f'(x_0)|+1)(|x - x_0|)$\\
+Remark: The above proof shows that if $f'(x_0)$ exists, then f is lipschitz continuous at $x_0$\\
+\subsection{Differentiation}
+\noindent Def: We call a function $f:\mathbb R\to \mathbb R$ linear if
+\[\forall x,y\in \mathbb R,f(x+y)=f(x)+f(y)\]
+\[\forall c\in \mathbb R,x\in \mathbb R,f(cx)=cf(x)\]
+\subsubsection{Remark}
+\noindent $f:\mathbb R\to \mathbb R$ is linear $\iff$ $f(x)=ax$ for some $a\in \mathbb R$\\
+Infinitesimal:\\
+Assume $f,g:\mathring{I}_c(x_0)\to\mathbb R$
+\[\lim_{x\to x_0}f=\lim_{x\to x_1}g=0\]
+We say $f=O(g)$ if $\lim_{x\to 0} \sup|\frac{f}{g}|\not = 0$\\
+We say $f=o(g)$ if $\lim_{x\to 0} \sup|\frac{f}{g}|= 0$
+\end{document}

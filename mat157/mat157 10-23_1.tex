@@ -1,0 +1,137 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx} % Required for inserting images
+
+\title{mat157 10-23}
+\date{October 2025}
+
+\begin{document}
+
+\maketitle
+
+\noindent Week 8:
+\section{Review}
+\begin{itemize}
+    \item For the real numbers, we have discussed order, arithemtic, and completeness
+\end{itemize}
+\section{Notes}
+\noindent Proposition:
+\\Let $\{a_n\}_{n\in\mathbb{N}},\{b_n\}_{n\in\mathbb{N}}$ be sequences such that 
+\[\lim_{n\to\infty}a_n=a,\lim_{n\to\infty}b_n=b\]
+\\$1^0$ If b$>$a, then $b_n$ dominates $a_n$ Strictly eventually if $\exists N_0\in\mathbb{N}:\forall n>N_0, b_n>a_n$
+\\$2^0$ If $b_n\text{ dominates }a_n$, then $b\geq a$
+\\Proof:
+\\$1^0$ Let $\epsilon=\frac{b-a}{2}>0$
+\\Then $\exists N_1,N_2\in\mathbb{N}$
+\\$\forall n>N,|a_n-a|<\epsilon$
+\\$\forall n>N_2,|b_n-b|<\epsilon$
+\\$N_3=\max(N_1,N_2)$
+\\$\implies\forall n>N_3,b_n>b-\epsilon=a+\epsilon>a_n$
+\\$2^0$ Assume to the contrary $\frac{b-a}{2}$ is not greater than 0, then $b<a$, contradicting the result from 1.
+\section{Remark}
+\noindent For the statement $1^0$, $b>a$ cannot be replaced by $b\geq a$
+\\Example:
+\[a_n=1-\frac{1}{n^2},b_n=1-\frac{1}{n}\]
+\\In this case there is no dominance, both the limits are equal to one.
+\\Example:
+\[a_n=(-1)^n(\frac{1}{n}),b_n=0\]
+\\The limit of both the sequences are equal to 0, but there is no dominance.
+\subsection{Remark}
+\noindent A special common scenario: asymptotic sign definition: 
+\\Let $\lim a_n=a\in\mathbb{R}$
+\\If a>0, eventually $a_n>a-\epsilon>0$ for some $\epsilon<<1$
+\\If a<0, eventually $a_n<a-\epsilon<0$ for some $\epsilon<<1$
+\\If a=0, no sign definitions, for example $a_n=(-1)^n(\frac{1}{n})$
+\subsection{Corollary}
+\noindent Let $\{a_n\}_{n\in\mathbb{N}},\{b_n\}_{n\in\mathbb{N}},\{c_n\}_{n\in\mathbb{N}}$ be sequences such that
+\\$\forall n\in\mathbb{N},a_n\leq b_n\leq c_n$
+\[\lim_{n\to\infty}a_n=\lim_{n\to\infty}c_n=L\in\mathbb{R}\implies \lim_{n\to\infty}b_n=L\]
+\\You know not only then that $b_n$ converges, but also that it converges to L.
+\\This is squeeze theorem
+\\We know that if $\{a_n\}_{n\in\mathbb{N}}$ is bounded and $\{b_n\}_{n\in\mathbb{N}}$ is convergent. Then $\{a_nb_n\}_{n\in\mathbb{N}}$ is bounded but may not be convergent.
+\subsection{Example}
+\noindent $a_n=(-1)^n,b_n=1,a_nb_n=(-1)^n$, this is bounded but divergent.
+\\Proposition:
+\\if $\{a_n\}_{n\in\mathbb{N}}$ is bounded and $\lim_{n\to\infty}b_n=0$.
+\\Then $\lim_{n\to\infty}a_nb_n=0$
+\\Proof:
+\\Let $M\in\mathbb{R}_{\geq 0}$, be the bound of $\{a_n\}_{n\in\mathbb{N}}$. $\forall n\in\mathbb{N},|a_n|\leq M$
+\[0=a_n\leq |a_nb_n|\leq M|b_n|=0\]
+\\By squeeze theorem.
+\subsection{Example}
+\noindent Let $\{a_n\}_{n\in\mathbb{N}}$ be a positive sequence, $k\in\mathbb{N}_+$ be fixed
+\[\lim_{n\to\infty}a_n^k=L^k\text{ assuming }L> 0\implies \lim_{n\to\infty}a_n=L\]
+\\Proof:
+\\Recall: 
+\[a^k-b^k=(a-b)(a^{k-1}+a^{k-2}b-a^{k-2}b^{2}+\dots+ab^{k-2}+b^{k-1})\]
+\[(a^k-L^k)=(a_n-L)(\Sigma_{i=1}^{k}a_n^{k-i}L^{i-1})\]
+\\Case 1: If L=0, then the result is evident, converge $\epsilon$ to 0 to show this.
+\\Case 2: $L>0$, Then we know that $\exists N_0\in \mathbb{N}$ such that $\forall n>N_0, a_n^k>(\frac{L}{2})^k\text{, so }a_n>\frac{L}{2}>0$
+\\Knowing this, $a_n-L$ converges to 0, thus $a_n=L$
+\subsection{Remark}
+\noindent We know 
+\[\lim_{n\to\infty}a_n=0,|b_n|\leq M\implies \lim_{n\to\infty}a_nb_n=0\]
+\\On the other hand
+\\$c_n=a_nb_n$ such that $\lim_{n\to\infty}c=0$, $|b_n|\geq b_n>0$
+\\Then 
+\[a_n=c_n\frac{1}{b_n}\]
+\subsection{Example}
+\noindent Find $\lim_{n\to\infty}\sin(\frac{1}{n})$
+\\Geometrically, $0<\sin(\frac{1}{n})<\frac{1}{n}$
+\\Thus, $0\leq \lim_{n\to\infty}\sin(\frac{1}{n})\leq \lim_{n\to\infty}\frac{1}{n} \leq 0$
+\[\lim_{n\to\infty}\sin(\frac{1}{n})=0\]
+\subsection{Example}
+\noindent Find $\lim_{n\to\infty}\cos(\frac{1}{n})$
+\\$\lim_{n\to\infty}\sin(\frac{1}{n})=0\implies \lim_{n\to\infty}\sin^2(\frac{1}{n})=0\implies \lim_{n\to\infty}1-\sin^2(\frac{1}{n})=1$
+\\$\implies \lim_{n\to\infty}\cos(\frac{1}{n})=\sqrt{1}=1$
+\subsection{Infinity of the limit}
+\noindent Definition: Let $\{a_n\}_{n\in\mathbb{N}}$
+\\We say that $\{a_n\}_{n\in\mathbb{N}}$ tends to infinity if 
+\[\forall M>0,\exists N\in\mathbb{N}: \forall n>N, a_n>M\]
+\\We denote it by $\lim_{n\to\infty}a_n=+\infty$
+\subsection{Example:}
+\[a_n=n,\lim_{n\to\infty}a_n=\infty\]
+\[a_n=-n,\lim_{n\to\infty}a_n=-\infty\]
+\[a_n=(-1)^nn,\lim_{n\to\infty}a_n=\text{DNE}\]
+\subsection{Indefinite Type}
+\noindent Typical Examples Include:
+\[\frac{\infty}{\infty},\infty-\infty,\frac{0}{0},0*\infty,1^\infty\]
+\subsection{Example}:
+\[\lim_{n\to\infty}\frac{a_pn^p+a_{q-1}n^{p-1}+\dots+a_1n+a_0}{b_qn^q+b_{q-1}n^{q-1}+\dots+b_1n+b_0}\]
+\\Where $a_p\not=0,b_p\not=0$
+\\If $p<q$, the result is 0
+\\If $p>q$, the result is $\pm \infty$
+\\If $p=q$, the result is $\frac{a_p}{b_p}$
+\subsection{Example}
+\noindent $\lim_{n\to\infty}\frac{n^p}{a^n}$ where $a>1,p\in\mathbb{N}$
+\\Since $a>1,$ let $a=1-\lambda,\lambda>0$
+\\Case 1: p=1
+\[\frac{n}{a^n}=\frac{n}{(1-\lambda)^n}=\frac{n}{\Sigma_{k=0}^{n}C_n^k\lambda^k}=\frac{n}{1+n\lambda+\frac{n(k-1)}{2}\lambda^2}\]
+\[\implies \lim_{n\to\infty}\frac{n}{a^n}=0\]
+\\Case 2: p>1
+\[\frac{n^p}{a^n}=(\frac{n}{a^{\frac{n}{p}}})^p=(\frac{n}{b})^p, \text{ where }b=a^\frac{1}{p}>1\]
+\[\lim_{n\to\infty}\frac{n^p}{a^n}=(\lim_{n\to\infty}\frac{n}{b^n})(\lim_{n\to\infty}\frac{n}{b^n})\dots(\lim_{n\to\infty}\frac{n}{b^n})=0\]
+\subsection{Example}
+\[\lim_{n\to\infty}\frac{a^n}{n!},a>1\]
+\\We know that $\exists N\in\mathbb{N}:\forall k<N,\frac{a}{k}\leq\frac{1}{2}$
+\[\frac{a^n}{n!}=\frac{a}{1}\frac{a}{2}\frac{a}{3}\dots\frac{a}{N}\frac{a}{N+1}\dots\frac{a}{n}=S\]
+\\Let M = $\frac{a}{1}\frac{a}{2}\frac{a}{3}\dots\frac{a}{N}$
+\[0\leq S< \lim_{n\to\infty}M(\frac{1}{2})^{n-N}=0\]
+\[\implies \lim_{n\to\infty}\frac{a^n}{n!}=0\]
+\subsection{Example}
+\[\lim_{n\to\infty}\frac{n!}{n^n}\]
+\[\frac{1*2*3*4*\dots*|\frac{n}{2}|}{n*n*n*n*\dots*n}<\frac{1}{n}*\frac{2}{n}\dots*\frac{|\frac{n}{2}|}{2}\leq(\frac{1}{2})^\frac{n}{2}\]
+\[<(\frac{1}{2})^{\frac{n}{2}-1}\to 0\]
+\\(tbh i have no clue what the prof did here, just search up a proof maybe)
+\subsection{Example}
+\[\lim_{n\to\infty}n\sin(\frac{1}{n})\]
+\[n\sin(\frac{1}{n})\leq \frac{\sin(\frac{1}{n})}{\frac{1}{n}}\]
+\[\cos(\frac{1}{n})=\frac{\sin(\frac{1}{n})}{\tan(\frac{1}{n})}\leq n\sin(\frac{1}{n})\leq \frac{\sin(\frac{1}{n})}{\frac{1}{n}}\leq \frac{\frac{1}{n}}{\frac{1}{n}=1}\]
+\\Thus, $n\sin(\frac{1}{n})$
+\subsection{Example}
+\[\lim_{n\to\infty}(1+\frac{1}{n})^n\]
+\\Claim: (TO DO: HOMEWORK) A monotonically increasing sequences that is bounded from above converges.
+
+
+\end{document}

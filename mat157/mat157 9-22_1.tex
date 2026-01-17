@@ -1,0 +1,27 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{mat157 9-22}
+\date{September 2025}
+
+\begin{document}
+
+\maketitle
+\noindent Q1:
+\\Claim, if $f:R\rightarrow R$ that is $2\pi$ periodic and bounded, then f is neither injective or surjective.
+\\Proof: Let x=0 and y=$2\pi$. By the periodicality of f, f(x)=f(o)=f($2\pi)=f(y)$. $x\not =y$ so f is not injective.
+\\Since f is bounded, it is bounded by a value of M. Let y = M + 157. $|f(x)|\leq M < M+157$, so $|f(x)| < M+157$ and $|f(x)| \not = M+157$
+\\
+\noindent Q2:
+\\Proof: we claim that $f(f^{-1}(A))\subseteq A \subseteq f^{-1}(f(A))$
+\\For the first inclusion, fix $y\in f(f^{-1}(x))$. Then $y= f(x)$ for some $x\in f^{-1}(A).$ Since $x\in f^{-1}(A)$, $f(x)=y\in A $
+\\For the second inclusion, fix $x\in A$. Then $f(x)\in f(A)$ and $x\in f^{-1}(f(A))$.
+\\Since $f(f^{-1}(A)) = f^{-1}(f(A))$, then $f(f^{-1}(A)) =  A = f^{-1}(f(A))$. 
+\\Suppose for the sake of contradiction, that f is not subjective. Then $\exists y\in A, f(x)\not = y, \forall x \in A$
+\\The preimage of the set $f^{-1}(\{y\})=\emptyset$ and $f(f^{-1}(\{y\}))=\emptyset = y$ So y is an empty set and y does not exist. 
+\\
+\noindent Q3:
+\\$\forall x_1,x_2 \in A, g\circ f(x_1)=g\circ f(x_2) \implies x_1=x_2$
+\\With injectivity of g, $g(f(x_1))=g(f(x_2))$ means $f(x_1)=f(x_2)$. 
+\\With the injectivity of f, $f(x_1)=f(x_2)$ means $x_1=x_2$
+\end{document}

@@ -1,0 +1,145 @@
+\documentclass{article}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx} % Required for inserting images
+
+\title{mat157 10-2}
+\date{October 2025}
+
+\begin{document}
+
+\maketitle
+Chapter 1: Construction of $\mathbb{R}$
+\\There are many different views on the construction of $\mathbb{R}$
+\begin{itemize}
+    \item Continuous Quantity
+    \item Arithmetic 
+    \item Axiomatic
+\end{itemize}
+Remark:
+\\Our construction will begin with $\mathbb{Q}$, then map to $\mathbb{R}$. 
+Mat309 and MAT406 $N->Z->Q->R$
+Mat157 $Q->R$
+mat137 R
+
+\noindent\\To begin, what do we know about the rational numbers?
+\\As a set, $\mathbb{Q}=\{x|x=\frac{p}{q},p\in \mathbb{Z},q\in \mathbb{N+},\gcd(p,q)=1\}$
+\\There exists structures in $\mathbb{Q}$
+\\There is a total order with $\leq\text{ in }\mathbb{Q}$
+\\Addition $+:\mathbb{Q\times Q\rightarrow Q}, \frac{p_1}{q_1}+\frac{p_2}{q_2}$
+\\Multiplication $\times: \mathbb{Q\times Q\rightarrow Q}, \frac{p_1}{q_1} \times \frac{p_2}{q_2}$
+\begin{enumerate}
+    \item $\forall x\in \mathbb{Q}, x\leq x$
+    \item $\forall x,y\in \mathbb{Q}, x\leq y \wedge y\leq x \implies x=y$
+    \item $\forall x,y\in \mathbb{Q}, x\leq y\wedge y\leq z\implies x\leq z$
+    \item $\forall x,y\in \mathbb{Q}, x\leq y\vee y \leq x$
+\end{enumerate}
+With all this, we know that the $(\mathbb{Q},\leq)$ is a totally ordered set.
+\noindent\\ $(\mathbb{Q},+)$
+\begin{enumerate}
+    \item $\forall x,y\in \mathbb{Q}\ x+y=y+x$
+    \item $\forall x,y,z\in \mathbb{Q}\ (x+y)+z=x+(y+z)$
+    \item $\forall x\in \mathbb{Q}\ x+0=x$
+    \item $\forall x\in \mathbb{Q},\ \exists y\in \mathbb{Q}\ \text{st}\ x+y=0$
+\end{enumerate}
+$\forall x,y,z\in \mathbb{Q}, x\leq y \wedge z\geq 0, $
+\\zzzzzz
+
+Remark:
+\noindent Subtraction is defined with the addition operator.
+\\$x-y=x+(-y)$
+
+\noindent \\ $(\mathbb{Q_*},*)$
+\begin{enumerate}
+    \item $\forall x,y\in \mathbb{Q},x*y=y*x$
+    \item $\forall x,y,z\in \mathbb{Q},(x*y)*z=x*(y*z)$
+    \item $\forall x \in \mathbb{Q}, x*1=x$
+    \item $\forall x\in \mathbb{Q_*}, \exists y\in \mathbb{Q} \text{ st }x*y=1$
+\end{enumerate}
+$\forall x,y,z$
+
+
+\noindent\\ Definition: Dedekind Cut 
+\\A dedekind cup on Q is a partition of Q by two non-empty set A, A'.
+\\The union of two sets $A\cup A'=U$, the interesctinon is $A\cup A'=\emptyset$
+\\$\forall x\in A, \forall y\in A', x< y$
+\\A does NOT adimt a maximum.
+\\Example:
+\\$A=\{x\in Q| x<\frac{1}{2}\}$
+\\$A'=\{x\in Q| x\geq \frac{1}{2}\}$
+\\Trick:
+\\$\forall a,b\in Q, a<b\implies \frac{a+b}{2}<b$
+\\$A=\{x\in Q| x^2<2\vee x\leq 0\}$
+\\$A'=\{x\in Q|x^2\geq 2\wedge x>0\}$
+\\Claim: A does not have a maximum
+\\Proof: Suppose for the sake of contradiction that there is a maximum, let this maximum be defined as a. 
+\\We can then take $b=\frac{(\sqrt{2}+a)}{2}$. This number is greater than a, but 
+
+
+\noindent Proof: $\forall x\in A$
+\\Case 1: $x\leq 0$, pick $y=1>x,y\in A$
+\\Case 2: $x>0$, pick $y=x+\frac{1}{n}$, declare $n>\frac{1+2x}{2-x^2}$
+\\Scratch Work for value of n
+\\We need $(x+\frac{1}{n})^2<2$
+\\$x^2+\frac{2x}{n}+\frac{1}{n^2}<2$
+\\$x^2+\frac{2x}{n}+\frac{1}{n}<2$ (Still under 2 because less than)
+\\$\frac{1}{n}(1+2x)<2-x^2$
+\\$n>\frac{1+2x}{2-x^2}$
+
+\noindent \\Definition
+\\We identify a dedekind cut with a real number.
+\\More precisely, $\alpha:=A|A'$ is called a real number. 
+\\If A' has a minimum, $\alpha$ is called rational.
+\\If A' does not have a minimum, $\alpha$ is called irrational.
+\\\\Remark: We will still use the same symbols to denote both a rational number and the dedekind cut defining it.
+\\Example:
+\\$\frac{1}{2}$ = $\frac{1}2$ and A|A' where $A=\{x\in Q|x<\frac{1}2\}$ and $A'=\{x\in Q|x\geq \frac{1}2\}$
+\\\\The set of all real numbers is denoted as $\mathbb{R}$
+\\\\Order on R:
+\\Definition:
+\\Let $\leq$ be a binary relation on $\mathbb{R}$, st $\forall a=A|A', b=B|B'\in \mathbb{R}$
+\\$a\leq b:=A\subseteq B$
+\\$a=b:=A=B$
+\\$a<b:=A\subsetneq B$
+
+\noindent\\Proposition: $\leq$ is a total order
+\\Proof:
+\\Reflexivity: $\forall \alpha = A|A' \in R, A\subseteq A\implies \alpha \leq \alpha$
+\\Anti-Symmetry:
+\\$\forall a=A|A', b=B|B'\in R$
+\\$a\leq b\wedge b\leq a\implies A\subseteq B\wedge B\subseteq A\implies A=B\implies a=b$
+\\Transitivity:
+\\$\forall a=A|A',b=B|B',c=C|C'\in R$
+\\$a\leq b\wedge b\leq c\implies A\subseteq B\wedge B\subseteq C\implies A\subseteq C\implies a\leq c$
+\\Totality:
+\\$\forall a=A|A',b=B|B'\in R$
+\\If $a\leq b$, we are done
+\\Then $A\not \subseteq B$, thus there exists an element $y\in A,y\not \in B$.
+\\$a\not \leq b\implies A\not \subseteq B\implies \exists y\in Q, y\in A, y\not \in B \implies y\in B'$
+\\Now $\forall x\in A',\forall z\in B$
+\\$x>y>z\implies x\in B'\implies A'\subseteq B'\implies B\subseteq A$
+\\Thus, if $a\not \leq b$, then $b\leq a$
+
+\noindent \\Let $a,b\in Q$
+\\$A=\{x\in Q|x<a\}$
+\\$B=\{x\in Q|x<b\}$
+\\$A\subseteq B\implies a=A|A'\leq b=B|B'$ (The order is not changed when rational numbers are added)
+
+\noindent \\Example
+\\Let $a=A|A'< b=B|B'$.
+\\Prove that there exists $g\in R$ such that $a<g<b$
+\\Proof: $a<b\implies A\subseteq B\implies \exists y\in Q, y\not \in A, y\in B$
+\\Now let $C=\{x\in Q|x<y\}$ then $g=C|C'$ is the cut.
+\\(This does not hold because y can be the minimum of A' assuming a is rational. This breaks a<g. To fix this we need to set it into B, which has no maximum, to ensure it is not the minimum of A')
+
+\noindent\\ Definition:
+\\Let $+:\mathbb{R\times R\rightarrow R}$ defined as below
+\\$\forall a=A|A',b=B|B'\in \mathbb{R}, a+b=C|C'$
+\\where $C=\{x+y|x\in A,y\in B\}, C'=Q/C$ (Addition in rational number)
+\\Justify $C\not = \emptyset, C\not = \mathbb{Q}$
+\\$\forall x \in C, \forall y \in C', y>x$
+\\Lemma: The requirement in dedekind cut is equivalent to 
+\\$\forall x\in C, \forall y<x, y\in C$
+
+\end{document}

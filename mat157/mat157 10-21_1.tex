@@ -1,0 +1,74 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx} % Required for inserting images
+
+\title{mat157 10-21}
+
+\date{October 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Review}
+\noindent Limit
+\[\lim a_n=a^*\in\mathbb{R}=\forall\epsilon>0,\exists n\in\mathbb{N},\forall n>N, |a_n-a^*|<\epsilon\]
+\\Uniqueness and existence of the limit
+\\Subsequences
+\\Bounded Sequence
+\\Cauchy Sequence
+\[\forall\epsilon>0,\exists n\in\mathbb{N},\forall n_1,n_2>N,|a_{n_1}-a_{n_2}|<\epsilon\]
+\section{Main Results}
+\noindent A sequence converges $\iff$ A seq is Cauchy
+\\Convergence $\implies$ Boundedness 
+\\Boundedness $\implies$ Convergence of a subsequence
+\\A sequence converges $\implies$ Each subsequence converges to the same limit
+\\Each subsequence converges $\implies$ The original sequence converges
+\\Properties of $\mathbb{R}$ are arthemetic, order, completeness
+\section{Sequences and Completeness}
+Theorem: Cauchy $\implies$ Dedekind
+\\Make two sets A and B such that B dominates A
+\\If A has a maximum, then the maximum is the desired value
+\\If A does not have a maximum, then pick $x\in A$ and $y\in B$.
+\\Claim: x is not a maximum
+\\Observation: Given any $\epsilon>0,\exists N_\epsilon \in \mathbb{N},$ such that 
+\[x+N_\epsilon * \epsilon\leq x_\epsilon\] 
+\\for some $x_\epsilon\in A$ and 
+\[x+(N_\epsilon+1)*\epsilon\geq \tilde{x},\forall\tilde{x}\in A\]
+\\Proof: We only need to prove the theorem for the case wher A does not have a maximum. Construct a sequence $\{a_n\}_{n\in\mathbb{N}}$ as follows 
+\[\forall n\in\mathbb{N},a_n:=x+N_{2^{-n}}*2^{-n}\]
+\\As $2^{-n}$ gets smaller, $a_n$ can become closer to the sup of A. Thus, $\{a_n\}_{n\in\mathbb{N}}$ is monotonically increasing, moreover, 
+\[\forall m,n\in \mathbb{N},m<n,0\leq a_n-a_m<2^{-m}\]
+\\This implies that $\forall\epsilon>0$ if $2^{-n}<\epsilon$ then $\forall n_1,n_2>N,|a_{n_1}-a_{n_2}|<\epsilon$.
+\\Thus $\{a_n\}_{n\in\mathbb{N}}$ is Cauchy, As a result, $\lim_{n\to\infty}a_n=c$ for some $c\in\mathbb{R}$
+\\First, $\forall b\in B, c\leq b$
+\\Otherwise, if $c>b^*$ for some $b^*\in B$, we can pick $\epsilon=\frac{c-b^*}{2}$
+\\then for some $M_2\in\mathbb{N}$
+\[\forall n>M_2,|a_n-c|<\frac{\epsilon}{2}\]
+\\This would imply that all the $a_n$, and then x, are around the c and are in b. 
+\\Second, $\forall a\in A, a\leq c$
+\\Otherwise, if $c<a^*$ for some $a^*\in A$
+\\Let $\epsilon=\frac{a^*-c}{3}$, Then $\exists a_k$ such that
+\[|a_k-c|<\frac{\epsilon}{3}\]
+\[2^{-k}<\frac{\epsilon}{3}\]
+\\Then we can see that it contradicts the definition in the construction of $\{a_n\}_{n\in\mathbb{N}}$ when n=k. (Pick an element $a_k$, $a_k$ should be on the brink of crossing over the sup of A but this is contradicted by our observations).
+\\2 works too?
+\\We can conclude that 
+\[\forall a\in A, \forall b\in B, a\leq c\leq b\]
+\\Dedekind Completeness (Use two sets, squeeze to a point)
+\\Borel (Bisection into an interval)
+\\Cauchy (Subsequences)
+\subsection{Arthemetic}
+\noindent If $\lim a_n=a,\lim b_n = b$
+\[\lim a_n \pm \lim b_n=a\pm b\]
+\[\lim a_n * b_n=a*b\]
+\[\lim \frac{a_n}{b_n}=\frac{a}{b}\text{ if }b\not = 0\]
+\\Proof:
+\[\forall\epsilon>0,\exists N_1,N_2\in \mathbb{N}\]
+\[\forall n>N_1,|a_n-a|<\frac{\epsilon}{2}\]
+\[\forall n>N_2,|b_n-b|<\frac{\epsilon}{2}\]
+\\Pick N=$\max(N_1,N_2)$
+\[\forall n>N, |a_n+b_n-(a+b)|\leq|a_n-a|+|b_n-b|<\epsilon\]
+\\The rest are practice on our own
+\end{document}

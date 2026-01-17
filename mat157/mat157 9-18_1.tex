@@ -1,0 +1,94 @@
+\documentclass{article}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{graphicx} % Required for inserting images
+
+\title{mat157 lec0101 9-18}
+
+\begin{document}
+
+\noindent Review
+\\Binary Relation
+\\$R\subseteq A\times B$
+\\If it is entire and functional, we now have a function
+\\Image f(C) $c\subseteq A$
+\\Preimage $f^{-1}(D)$ $D\subseteq B$
+\\Restriction and composition
+\\\\Def: Restriction
+\\Let $f:A\rightarrow B$ be a function, and $S\subseteq A$
+\\The function $f_{|S}:S\rightarrow B$ to be $f\cap S\times B$
+\\\\Example:
+\\$f:R\rightarrow R\ \ \ \ x\rightarrow x^2$
+\\$f|_{[0,\infty )}\ \ [0,+\infty)\rightarrow R \ \ x\rightarrow x^2$
+\\This is useful to examining a portion of a function 
+\\\\Def: Composition
+\\Let $f:A\rightarrow B, \ \ g:B \rightarrow C$ be two functions. 
+\\The composition $g\circ f:A\rightarrow C$ is defined as $\forall x\in A \ \ g\circ f(x)=g(f(x))$
+\\$g\circ f=\{\ (x,z)\in A\times C \mid \exists y\in B, st\ \ (x,y)\in f\vee (y,z)\in g\}\ $
+\\This is useful for examining more difficult functions.
+\\Remark: Sometimes it makes sense to discuss the composition in both directions, but the order of composition matters in general. ($f\circ g \not = g\circ f$
+\\\\A natural thing we can do is to compare the size of two sets. Unfortunately, counting in math can be very difficult. Using natural numbers is based on reality and mathematicians has lost touch with their fingers. 
+\\Example: (Galilo, 1638)
+\\$A=\mathbb{N}+$
+\\$B=\{\ n^2 \mid n\in \mathbb{N}+\}\ $
+\\There are infinitely many elements, and while $B\subset A$, they are the same size because you can set each number to another. (0 to $0^2$, 1 to $1^2$, 2 to $2^2$, 3 to $3^3$, 4 to $4^2$)
+\\\\Def:
+\\Let $f:A\rightarrow B$ be a function. We say f is:
+\\\textit{Injective} if $\forall x_1, x_2\in A, (f(x_1)=f(x_2))\implies x_1=x_2$ (one to one)
+\\\textit{Surjective} if $\forall y\in B, \exists x\in A, st\ \ f(x)=y$ (onto)
+\\\textit{Bijective} if it is injective and surjective
+\\Remark: When we discuss the inj\textbackslash surj \textbackslash bij
+\\We are discussing properties of functions. Thus, these properties are often dependent on the domain A and the codomain B.
+\\\\Example:
+\\Prove that $f:[1,+\infty)\rightarrow [2,+\infty) f(x)=x+\frac{1}{x}$
+\\Proof: Show both injective and surjective
+\\Let A = $[1,+\infty)$, B = $[2,+\infty)$
+\\First, let's prove the function is injective. Let $x_1,x_2\in A$ be arbitrary.
+\\$f(x_1)=f(x_2)\rightarrow x_1+\frac{1}{x_1}=x_2+\frac{1}{x_2}\rightarrow x_1^2x_2+x_2=x^2_2x_1+x_1$
+\\$\implies x_1^2x_2-x^2_2x_1+x_2-x_1=0$
+\\$\implies x_1x_2(x_1-x_2)+(x_2-x_1)=0$
+\\$\implies(x_1-x_2)(x_1x_2-1)=0$
+\\If $x_1=x_2$, we are done. 
+\\If $(x_1x_2-1)=0$, and since $x_1\geq 1, x_2\geq 1$, then $x_1=1=x_2$
+\\Secondly, let's prove the function is subjective. Let $y\in B$, pick $x=\frac{y+\sqrt{y^2-4}}{2}$. Since $y\geq 2 \text{, from this function we know } x\geq 1$ 
+\\$f(x)=\frac{y+\sqrt{y^2-4}}{2}+\frac{2}{y+\sqrt{y^2-4}}$
+\\$f(x)=\frac{y+\sqrt{y^2-4}}{2}+\frac{y-\sqrt{y^2-4}}{2}$
+\\$f(x)=\frac{y+y}{2}=y$
+\\\\Characterising the Injectivity
+\\Propositions
+\\The following statements are equivalent for a function $f:A\rightarrow B$
+\begin{enumerate}
+    \item f is injective
+    \item $\forall c\subseteq A \ \ f^{-1}(f(c))=c$
+    \item $\exists g: B\rightarrow A, st \ \ g\circ f=Id_A$ (g is sometimes called the left inverse of f)(identity function of A)
+    \item For any set C and any two $\lambda_1,\lambda_2:C\rightarrow A, f\circ \lambda_1=f\circ \lambda_2 \implies \lambda_1=\lambda_2 $ (Left cancellability)
+\end{enumerate}
+\noindent $1.\implies 2.$ Let $C\subseteq A$. We have proved already that $C\subseteq f^{-1}(f(C))$. If $C\not = f^{-1}(f(C))\text{, then }\exists x_0\in f^{-1}(f(C)\text{, but }x_0 \not \in C, \text{ thus } f(x_0)\in f(C)\text{, and } \exists x_1\in C, st \ \ f(x_0)=f(x_1).$
+\\This implies that $x_0=x_1\in C$, contradiction
+\\\\2. Define $g:B\rightarrow A$ st
+\\$\forall y \in B, \ g(y)$
+\\There are two cases, either y has a corresponding x in A or it does not
+\\x, if f(x)=y. 
+\\We know there is only one x for each why because 
+\\$f^{-1}(f(\{\ x_1\}\ ))=f^{-1}(\{y\})=\{x_1\}$
+\\Otherwise, 
+\\$x^*$ if $g\not \in f(A)$
+\\Now, $\forall x\in A$ 
+\\$g\circ f=g(f(x))=x$
+\\\\Remark: 
+\\Assume that $f(x_1)=f(x_2)$ and a left inverse $g:B\rightarrow A$ exists
+\\$g(f(x_1))=g(f(x_2))$
+\\Since left inverse, $x_1=x_2$
+\\\\3. Composition with g leads to 
+\\$(g\circ f)\circ \lambda_1=g\circ(f\circ\lambda_2)=Id_a\circ\lambda_1$
+\\$g\circ(f\circ \lambda_1)=g\circ (f\circ \lambda_2)\implies \lambda_1=\lambda_2 $
+\\\\4. Let $x_1,x_2\in A$ st $f(x_1)=f(x_2)$
+\\Now let C be non-empty and define 
+\\$\lambda_1:C\rightarrow A,\ C\rightarrow x_1$
+\\$\lambda_2:C\rightarrow A,\ C\rightarrow x_2$
+\\Now, $f(x_1)=f(x_2)\implies (f\circ \lambda_1=f\circ \lambda_2) \implies \lambda_1=\lambda_2\implies x_1=x_2$
+
+
+\noindent\\\\\\\\\\\\\\\\\ Prove there is a car by driving it.
+
+\end{document}

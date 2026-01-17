@@ -1,0 +1,143 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\begin{document}
+\section{Cauchy Completeness}
+\noindent Tools: Sequences
+\\Def: Sequence
+\\A sequence is a function:f $\mathbb{N} \rightarrow\mathbb{R}$
+We often denote it by $\{a_n\}_{n\in\mathbb{N}}$, when $a_n=f(n)$
+
+\subsection{Remark}
+\noindent Our interest will be the asymptotic behaviour of $\{a_n\}_{n\in\mathbb{N}}$ for n goes arbitrarily large. 
+\\Def: Boundedness 
+\\A sequence $\{\}$ is bounded if $\exists \delta \geq 0, st \forall n\in \mathbb{N}, |a_n|\leq M$
+
+\subsection{Example}
+\noindent a = $(-1)^n$
+\\$a_0=1,a_1=-1,a_2=1$
+\\$\{a_n\}_{n\in\mathbb{N}}$ is bounded, $\forall n\in\mathbb{N}, |a_n|\leq 1$ 
+\subsection{Remark}
+\noindent If $M\geq 0$ is a bound of $\{a_n\}_{n\in \mathbb{N}}$, 
+\\then any $M^\sim>M$ is also a bound of $\{a_n\}_{n\in \mathbb{N}}$.
+\\Def: Convergence 
+\\A sequence $\{a_n\}_{n\in\mathbb{N}}$  is convergent to $a^*\in \mathbb{R}$ if
+\\$\forall \epsilon > 0, \exists N\in \mathbb{N}, st\ \forall n>\mathbb{N}\ |a_n-a^*|<\epsilon$
+\\Convergence is if the difference between a large n at $a^*$ becomes arbitrarily small
+\\We denote convergence by $\lim_{n\to \infty}a_n=a^*$
+
+\subsection{Example}
+\noindent $\{a_n\}_{n\in\mathbb{N}}, a_n=\frac{1}{n}$ 
+\\This sequence converges to 0.
+\\$\forall \epsilon>0$, pick $N>\frac{1}{\epsilon}$
+\\$|\frac{1}{n}-0|=\frac{1}{n}<\epsilon$
+\\$n>\frac{1}{\epsilon}$
+\\Then $\forall n>\mathbb{N}$, $|a_n-0|=|\frac{1}{n}|<\frac{1}{N}<\epsilon$
+
+\subsection{Relation between bounded and convergent sequences}
+\noindent Proposition: $Convergence \implies Boundedness$
+\\Proof: Let $\{a_n\}_{n\in\mathbb{N}}$ be a convergent sequence. 
+\\$\lim_{n\rightarrow \infty}{a_n=a^*}$ for some $a^*\in \mathbb{R}$
+\\It follows that $\exists N\in \mathbb{N}$, st 
+\\$\forall n>\mathbb{N}, |a_n-a^*|<1$ 
+\\which implies that 
+\\$\forall n> N, |a_n|<1+|a^*|$
+\\This is from triangle inequality ($|a_n|=|a_n-a^*+a^*|\leq |a_n-a^*|+|a^*|<1+|a^*|$)
+\\Moreover, take 
+\\$M=max_{0\leq n\leq N}|a_n|$
+\\Then, $M^*=\max(M,1+a_n)$ satisfies 
+\\$\forall n\in \mathbb{N}, |a_n|<M^*$
+
+\subsection{Example}
+\noindent $a_n=(-1)^n$
+\\Using the negation of convergence,
+\\$]forall a^*\in \mathbb{R},\exists \epsilon>0, \forall N\in \mathbb{N},\exists n>N, |a_n-a^*|>\epsilon$
+\\If $|a^*|>0$, then pick $\epsilon = \frac{1}{2}$
+\\$\forall N\in \mathbb{N}, |a_{2N+1}-a^*|=a^*+1>\frac{1}{2}$
+\\If $|a^*|\leq 0$, still pick $\epsilon = \frac{1}{2}$
+\\$\forall N\in \mathbb{N}, |a_{2N}-a^*|=1+|a^*|>\frac{1}{2}$
+\\As a result, the limit does not exist and $\{a_n\}_{n\in\mathbb{N}}$ is not bounded.
+
+\subsection{Example}
+\noindent Fluctuation does not mean it does not converge.
+\\$a_n=\frac{(-1)^n}{n}$ for $n\geq 1$
+\\Def: Subsequence
+\noindent Let $\{a_n\}_{n\in\mathbb{N}}$  be a sequence, then for any 
+\\$k_1<k_2<k_3<k_4\dots <k_i<\dots$
+\\increasing sequence of naturals, $\{a_{k_i}\}_{i\in\mathbb{N}}$ 
+\\is called a subsequence of $\{a_n\}_{n\in\mathbb{N}}$ 
+\\Take a few infinite items and form a smaller sequence from it
+
+\subsection{Example}
+\noindent $\{a_n\}_{n\in\mathbb{N}}, a_n=(-1)^n$ 
+\\$\{a_{k_i}\}_{i\in\mathbb{N}}, k_i=2i$ 
+\\$a_1, a_2, a_3, a_4\dots $ 
+\\this is a constant sequence. $a_i=1. \forall i \in \mathbb{N}$
+\\\\Claim: Every bounded sequence admits at least 1 convergent subsequence.
+\\Proof: Let $\{a_n\}_{n\in\mathbb{N}}$  be a bounded sequence.
+\\If the range of $\{a_n\}_{n\in\mathbb{N}}$ is finite, there is $\forall n\in \mathbb{N}, a_n\in\{b_1,b_2,b_k\}$
+\\for some $j\in \mathbb{N}$, at least one element, say $b_j, 1\leq j \leq k$
+\\is admitted infinitely many times, which postulates a convergent subsequence of just that element.
+\\If the range of $\{a_n\}_{n\in\mathbb{N}}$ is an infinite set. The B-w theorem indicates the existence of a limit point, say $a^*$. We claim that some subsequence $\{a_n\}_{n\in\mathbb{N}}$  converges to $a^*$.
+\\$\lim_{j\rightarrow \infty}{a_{k_j}}=a^*$
+\\Indeed, since $a^*$ is limit point of $\{a_n\}_{n\in\mathbb{N}}$.
+\\Pick $a_k$, by the definition of limit point, $a_k\not = a^*$.
+\\To make the subsequence converge to $a^*$, 
+\\$\epsilon_1 = \frac{|a_{k_1}-a^*|}{2}<\frac{1}{2}$
+\\$\epsilon_2 = \frac{|a_{k_2}-a^*|}{2}<\frac{1}{2^2}$
+\\$\epsilon_3 = \frac{|a_{k_3}-a^*|}{2}<\frac{1}{2^3}$
+\\$\epsilon_4 = \frac{|a_{k_4}-a^*|}{2}<\frac{1}{2^4}$
+\\$\dots$
+\\$|a_{k_j}-a*|<\frac{1}{2^i}$
+
+\subsection{Review}
+\noindent Convergence implies boundedness
+\\Boundedness does not imply convergence
+\\Boundedness implies at least one convergent subsequence
+\\\\Limit: Existence and uniqueness
+\\Uniqueness: If a sequence converges, then its limit is unique. (Prove by showing that if two elements fufill the definition, they are equal)
+\\Assume that $l_1,l_2$ are both limits of $\{a_n\}_{n\in\mathbb{N}}$ is $\lim a_n=l_1, \lim a_n=l_2$, and to the contrary that $l_1\not = l_2$
+\\$\epsilon = \frac{|l_1-l_2|}{2}$
+\\$|a_n-l_1|<\epsilon$
+\\$|a_n-l_2|<\epsilon$
+$$|l_1-l_2|>0$$
+$$|l_1-l_2|=|l_1-a_n+a_n-l_2|\leq|l_1-a_n|+|a_n-l_2|$$
+$$|l_1-l_2|<2\epsilon$$
+$$|l_1-l_2|<|l_1-l_2|$$
+\\\\Existence:
+\\Cauchy Criterion
+\\Def: (Cauchy Sequence)
+\\$\{a_n\}_{n\in\mathbb{N}}$ is called a Cauchy sequence if 
+\\$\forall \epsilon > 0, \exists N\in \mathbb{N}, st\ \forall n_1, n_2 > N, |a_{n_1}-a_{n_2}|<\epsilon$
+\\Definition: A sequence $\{a_n\}$ is convergent $\iff$ $\{a_n\}_{n\in\mathbb{N}}$ is Cauchy 
+\\Proof: Assume that $\lim_{n\rightarrow \infty}{a_n=l}$ for $l\in \mathbb{R}$. Hence, $\forall \epsilon>0,\exists N\in \mathbb{N}$ st $\forall n_1,n_2> N.\ |a_{n_1}-l|<\frac{\epsilon}{2}, |a_{n_2}-l|<\frac{\epsilon}{2}$
+\\Hence, $|a_{n_1}-a_{n_2}|<|a_{n_1}-l|+|l-a_{n_2}|<\frac{\epsilon}{2}+\frac{\epsilon}{2}$
+\\\\Key result (Using Cauchy to prove convergence allows us to prove convergence without needing to know the actual limit)
+\\Assume that the sequence $\{a_n\}_{n\in\mathbb{N}}$ is Cauchy.
+\\Claim: A Cauchy sequence is bounded. 
+\\$\forall \epsilon > 0, \exists N\in \mathbb{N}, st\ \forall n_1,n_2> N, |a_{n_1}-a_{n_2}|<\epsilon$
+\\In particular, $\forall n\leq N+1, |a_n-a_{N+1}|<1$, which implies in turn
+\\$|a_n|=|a_n-a_{N+1}+a_{N+1}|\leq |a_n-a_{N+1}|+|a_{N+1}| = 1+|a_{N+1}|$
+\\rest of proof left to us
+\\\\Now we discuss two cases.
+\\1. If the range of $\{a_n\}_{n\in\mathbb{N}}$ is a finite set, $\{b_1,b_2,\dots,b_k\}$
+\\Pick $\frac{1}{2}\min{(|b_i-b_j|)}1\leq i \pm j \leq k$
+\\Since $\{a_n\}_{n\in\mathbb{N}}$ is Cauchy, $\exists N\in \mathbb{N}$
+\\$\forall n_1,n_2 > N, |a_{n_1}-a_{n_2}|< \epsilon$
+\\then $a_{n_1}=a_{n_2}$ Otherwise, $\epsilon > |a_{n_1}-a_{n_2}\leq 2\epsilon|$, contradiction.
+\\This implies that $\forall n\geq N, a_n = CST$
+\\2. If the range of $\{a_n\}_{n\in\mathbb{N}}$ is an infinite set, then there exists a limit point, $a^*$, such that $\lim_{i\rightarrow \infty}{a_{k_j}=a^*}$ for some subsequence $\{a_{k_j}\}_{j\in\mathbb{N}}$
+\\This implies that for $\forall\epsilon > 0, \exists N\in \mathbb{N}, st \forall k_i > N$
+\\$|a_{k_i}-a^*|<\frac{\epsilon}{2}$
+\\Moreover, by Cauchy criterion, $\exists N_2\in \mathbb{N}, st\ \forall n_1,n_2> N_2, |a_{n_1}-a_{n_2}|<\frac{\epsilon}{2}$
+\\Pick $N^*=\max{(N_1,N_2)}, \forall n>N^*$
+\\$|a_n-a^k|=|a_n-a_{k_i}+a_{k_i}-a^*|\leq|a_n-a_{k_i}|+|a_{k_i}-a^k|<\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon$
+\section{Ending notes}
+\noindent No more mock quizzes, just quiz
+\\Mega ninja for 2 points after reading week.
+
+\end{document}

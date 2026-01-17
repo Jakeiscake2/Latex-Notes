@@ -1,0 +1,131 @@
+\documentclass{article}
+\usepackage[]{amsfonts,amsmath}
+
+\title{mat159 1-16}
+\date{January 2026}
+
+\begin{document}
+	
+	\maketitle
+	\section{Review}
+	\begin{itemize}
+		\item 	Primitive (Anti-derivative)
+		\item Techniques in their computation
+		\begin{itemize}
+			\item linearity, substitution, IBP
+		\end{itemize}
+		\item rationalization?
+	\end{itemize}
+	\subsubsection{Recall}
+	\begin{itemize}
+		\item $\mathbb C$ is algebraically closed (FTA)
+		\item Complex roots of $f\in\mathbb R[x]\subseteq \mathbb C[x]$ (non-real)
+	\end{itemize}
+	Will show up in pairs.\\
+	
+	Now, 
+	\[\begin{split}
+		f(x)=&a_nx^n+a_{n-1}x^{n-1}+\dots+a_1x+a_1\in\mathbb R[x]\\
+		&=a_n(x-x_1)(x-x_2)\dots(x-x_n)
+	\end{split}\]
+	If $\omega \in \mathbb{C\backslash R}$ is a root, so is $\overline{\omega}$.\\
+	If $\omega = a+bi,\overline \omega = a-bi,a,b\in\mathbb R$.
+	\[(x-\omega)(x-\overline \omega)=x^2-(w+\overline w)x-(w\overline w)\]
+	Hence, 
+	\[f(x)=a_n(x-x_1)^{k_1}(x-x_2)^{k_2}\dots(x^2+p_lxq_l)^{k_l}\]
+	\subsubsection{Partial Fraction:}
+	Type 1:\\
+	\[\frac{P(x)}{(x-a)^kQ(x)}\]
+	\[P(a)\not = 0\iff x-a \not \mid P(x)\]
+	Similarly for $Q(x)$\\
+	Claim: $\exists P_1(x)\in\mathbb R[x],A\in \mathbb R$
+	\[\frac{P(x)}{x-a)^kQ(x)}=\frac{A}{(x-a)^k}+\frac{P(x)}{(x-x_1)^{k-1}}\]
+	uhhh whatever\\
+	We need:
+	\[x^2+px+q \mid P(x)-(Bx+C)Q(x)\]
+	\[P(x)=(x^2+px+q)G(x)+(a_1x+b_1)\]
+	\[Q(x)=(x^2+px+q)H(x)+(a_2x+b_2)\]
+	Then the equation we need is equivalent to \\
+	\[x^2+px+q\mid a_1x+b_1-(Bx+C)(a_2x+b_2)\]
+	\[\implies (Bx+C)a_2x+b_2)-(a_1)x+b_1)\]
+	\[=(Bx+C)(a_2x+b_2)-(a_1x+b_1)\]
+	\[=Ba_2x^2+(Bb_2+Ca_2-a_1)x+Cb_2-b_1\]
+	\[=Ba_2(x^2+px+q)+(Bb_2+Ca_2-a_1-Ba_2p)x+Cb_2-b_1-Ba_2q\]
+	We want a degree 2 polynomial to divide the polynomial $(Bb_2+Ca_2-a_1-Ba_2p)x+Cb_2-b_1-Ba_2q$. However, this cannot happen UNLESS this polynomial equals 0.
+	\[(Bb_2+Ca_2-a_1-Ba_2p)x+Cb_2-b_1-Ba_2q\]
+	Thus, we need
+	\begin{align}
+		&(b_2-a_2p)B+a_2C=a_1\\
+		&(-a_2q)B+b_2C=b_1
+	\end{align}
+	ie:
+	\[\begin{pmatrix}
+		b_2-a_2p & a_2\\
+		-a_2q & b_2
+	\end{pmatrix}\begin{pmatrix}
+	B\\
+	C
+	\end{pmatrix}=\begin{pmatrix}
+	a_1\\
+	b_1
+	\end{pmatrix}\]
+	The determinent of the matri cannot be 0, as\\
+	\[\det(M)=b^2_2-a_2b_2p+a_2^2q\]
+	If $a_2=0$, Then $b_2\not = 0$, Otherwise 
+	\[x^2+px+q\mid Q(x)\]
+	Contradiction!\\
+	Then, $M=\begin{pmatrix}
+		b_2& \\
+		& b_2 \\
+	\end{pmatrix}$
+	\[\det(M)=b^2_2>0\]
+	If $a_2\not = 0$, 
+	\begin{align}
+		\det(M)&=a^2_2((\frac{b_2}{a_2})^2-\frac{b_2}{a_2}p+q)\\
+		&=a^2_2((-\frac{b_2}{a_2})^2+(-\frac{b_2}{a_2})p+q)>0
+	\end{align}
+	\subsubsection{Example}
+	\[\int \frac{2x^2+2x+13}{(x-2)(x^2+1)^2}dx\]
+	\[=\frac{A}{x-2}+\frac{Bx+C}{x^2+1}+\frac{Dx+E}{(x^2+1)^2}\]
+	\[\implies 2x^2+2x+13=A(x^2+1)^2+(Bx+C)(x-2)(x^2+1)+(Dx+E)(x-2)\]
+	\[=A(x^4+2x^2+1)+(Bx+C)(x^3-2x^2+x-2)+(Dx^2-2Dx+Ex-2E)\]
+	\[=Ax^4+A2x^2+A+(Bx^4-2Bx^3+Bx^2-2Bx+Cx^3-2Cx^2+Cx-2C)+(Dx^2-2Dx+Ex-2E)\]
+	\[=Ax^4+A2x^2+A+Bx^4-2Bx^3+Bx^2-2Bx+Cx^3-2Cx^2+Cx-2C+Dx^2-2Dx+Ex-2E\]
+	\[=Ax^4+Bx^4+Cx^3-2Bx^3+A2x^2+A+Bx^2-2Bx-2Cx^2+Cx-2C+Dx^2-2Dx+Ex-2E\]
+	i give up.\\
+	\[\implies 2x^2+2x+13=A(x^2+1)^2+(Bx+C)(x-2)(x^2+1)+(Dx+E)(x-2)\]
+	Let $x=2$, 
+	\[25=A25 + 0 + 0\]
+	\[A=1\]
+	Let $x=0$,
+	\[13=A-2C-2E\]
+	Let $x=1$,
+	\[17=4A-2(B+C)-(D+E)\]
+	Let $x=-1$,
+	\[13=4A-6a(C-B)-3(E-D)\]
+	Let $x=-2$,
+	\[\]
+	\subsection{Type I}
+	\[\int \frac{A}{(x-a)^k}dx\]
+	\[\int\frac{k}{(x-a)^k}d(x-a)\]
+	If $k=1$, $=A\ln |x-a|+C$.
+	Else if $k>1$, $=\frac{A}{(-k+1)}(x-a)^{-k+1}$
+	
+	\subsection{Type II}
+	\[\frac{Bx+C}{(x^2+px-q)^k}dx\]
+	\[=\int\frac{Bx+C}{(x+\frac{p}{2})^2+(q-\frac{p^2}{4})}dx\]
+	\[=\frac{B}{(q-\frac{p^2}{4})^k}\int \frac{x+\frac{p}{2}}{((\frac{x+\frac{p}{2}}{\sqrt{q-\frac{p^2}{4}}})^2+1)^k}+\frac{1}{(q-\frac{p^2}{4})^4}\int\frac{C-B\frac{p}{2}}{(\frac{x+\frac{p}{2}}{\sqrt{q-\frac{p^2}{4}}})^2+1)^k}dx\] %excuse me what
+	Let $y=x+\frac{p}{2}$.
+		$\lambda \sqrt{q-\frac{p^2}{x}
+		\[\implies \lambda^2\int \frac{\frac{y}{\lambda}}{((\frac{y}{\lambda})^2+1)^k}d(y/\lambda)]
+		Let $u=\frac{y}{x}$
+		\[\implies\]
+		
+		
+	R(cosx sinx)\\
+	Rational functions with cos x and sinx. How do we solve?\\
+	Let $t = tan x/2$
+	\[\sin x = \frac{2x}{(1+t^2)}\]
+	\[\cos x = \frac{1-t^2}{1+t^2}\]
+	\[dx=d 2\arctan t=\frac{2}{1+t^2}dt\]
+\end{document}
