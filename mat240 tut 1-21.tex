@@ -1,0 +1,167 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[]{amsmath}
+\title{mat240 tut 1-21}
+\author{Yulian Zhu-yu}
+\date{January 2026}
+
+\DeclareMathOperator{\F}{\mathbf{F}}
+\begin{document}
+	
+	\maketitle
+	
+	\section{Introduction}
+	Let V be a vector space. If $u,v,w\in V$ are such that $u+v=w+v$, then $u=w$.
+	
+	1. $\begin{pmatrix}
+		1& 2& -1\\
+		2& 2& 1\\
+		3& 5& -2
+	\end{pmatrix}$
+	\[\begin{pmatrix}
+		1& 0& 0\\
+		0& 1& 0\\
+		0& 0& 1\\
+	\end{pmatrix}\]
+	2.$\begin{pmatrix}
+		2& -2& -3& 0\\
+		3& -3& -2& 5\\
+		1& -1& -2& -1
+	\end{pmatrix}$
+	\[\begin{pmatrix}
+		1& -1& -2& -1\\
+		2& -2& -3& 0\\
+		3& -3& -2& 5
+	\end{pmatrix}\]
+	\[\begin{pmatrix}
+		1& -1& -2& -1\\
+		0& 0& -1& -2\\
+		3& -3& -2& 5
+	\end{pmatrix}\]
+	\[\begin{pmatrix}
+	1& -1& -2& -1\\
+	0& 0& -1& -2\\
+	0& 0& 4& 8
+	\end{pmatrix}\]
+	\[\begin{pmatrix}
+	1& -1& 0& 3\\
+	0& 0& 1& 2\\
+	0& 0& 0& 0
+	\end{pmatrix}\]
+	3.$\begin{pmatrix}
+		1 &2 &2 &0\\
+		1 &0 &8 &5\\
+		1 &1 &5 &5
+	\end{pmatrix}$
+	\[\begin{pmatrix}
+		0 &1 &-3 &-5\\
+		1 &0 &8 &5\\
+		1 &1 &5 &5
+	\end{pmatrix}\]
+	\[\begin{pmatrix}
+		0 &1 &-3 &-5\\
+		0 &1 &-3 &0\\
+		1 &1 &5 &5
+	\end{pmatrix}\]
+	\[\begin{pmatrix}
+		0 & 0&0 &5\\
+		0 &1 &-3 &0\\
+		1 &1 &5 &5
+	\end{pmatrix}\]
+	\[\begin{pmatrix}
+		1 &0 &8 &0\\
+		0 &1 &-3 &0\\
+		0 & 0&0 &1
+	\end{pmatrix}\]
+	4.$\begin{pmatrix}
+		1& 1& -1& 1\\
+		1& 2& 0& 1\\
+		0& 1& 1& -1\\
+		2& 4& 0& 1\\
+	\end{pmatrix}$
+	\[\begin{pmatrix}
+		1& 0& -2& 0\\
+		0& 1& 1& 0\\
+		0& 0& 0& 1\\
+		0& 0& 0& 0
+	\end{pmatrix}\]
+	
+	1.$\begin{pmatrix}
+		1 &0& 2& -3&|&4\\
+		0 &1& 2& 1 &|&-1\\
+		0 &0& 0& 0 &|&0
+	\end{pmatrix}$
+	\[x_1+2x_3-3x_4=4\implies x_1=-2x_3+3x_4-4\]
+	\[x_2+2x_3+x_4=-1\implies x_2=-2x_3-x_4+1\]
+	\[x_1=-2s+3t-4\]
+	\[x_2=-2s-t+1\]
+	\[x_3=s\]
+	\[x_4=t\]
+	\[(-2s+3t-4,-2s-t+1,s,t)\]
+	\[x=s\begin{pmatrix}
+		-2\\-2\\1\\0
+	\end{pmatrix}+
+	t\begin{pmatrix}
+		3\\-1\\0\\1
+	\end{pmatrix}+
+	\begin{pmatrix}
+		-4\\1\\0\\0
+	\end{pmatrix}\]
+	2.$\begin{pmatrix}
+		0 &1 &0 &2 &-3&|& 4\\
+		0 &0 &1 &2 &1&|& -1\\
+		0 &0 &0 &0 &0&|& 0
+	\end{pmatrix}$
+	
+	\[x_2+2x_4-3x_5=4\implies x_2=-2x_4+3x_5-4\]
+	\[x_3+2x_4+x_5=-1\implies x_3=-2x_4-x_5+1\]
+	\begin{itemize}
+		\item $x_1=a$
+		\item $x_2=-2b+3c-4$
+		\item $x_3=-2b-c+1$
+		\item $x_4=b$
+		\item $x_5=c$
+	\end{itemize}
+	
+	3.$\begin{pmatrix}
+		1 &0& 1&|& -1\\
+		0 &1& 3&|& 0\\
+		0 &0& 0&|& 1
+	\end{pmatrix}$\\
+	No solution due to last row.\\
+	
+	4.$\begin{pmatrix}
+		1& 0& 1 &-4& 2 &|&-1\\
+		0& 1& -2& -4& 0&|& -1\\
+		0& 0& 0 &0& &0&|& 0
+	\end{pmatrix}$
+	\[x_1+x_3-4x_4+2x_5=-1\implies x_1=-x_3+4x_4-2x_5-1\]
+	\[x_2-2x_3-4x_4=-1\implies x_2=2x_3+4x_4-1\]
+	
+	\newpage
+	\section{Writing Activity}
+	Theorem: Let $\F$ be a field, and $V$ a vector space over $\F$. A subset $U \subseteq V$ is a subspace if and only if\\
+	\begin{enumerate}
+		\item $0\in U$ and 
+		\item for all $x, y\in U$, we have $x+y\in U$ for all $a\in \F$
+	\end{enumerate}
+	\subsubsection{Only if}
+	Given that $U$ is a subspace of $\F$, we know that $U$ is non-empty. Take an arbitrary element $w\in U$ and multiply it by 0. \[0w=0\] Since U is closed under scaling we know that the product, which is the zero vector, must be in $U$. \[0\in U\]
+	Next, take an arbitrary $x \in U$ and $a\in\F$, then $ax\in U$ because U is closed under scaling.
+	\[\forall x\in U, \forall a\in \F, ax\in U\]
+	Furthermore, taking another arbitrary vector $y\in U$, we know that $ax+y\in U$ because $U$ is closed under vector addition.
+	\[\forall y\in U, \forall x\in U,\forall a\in \F, ax+y\in U\]
+	\subsubsection{if}
+	Given that the zero vector is in $U$, $U$ is non-empty.
+	\[0\in U\implies U\not = \emptyset\]
+	If we set $a$ to 1, we find that for any two vectors $x,y\in U$, we know that $x+y=U$. We know $1\in \F$ because $\F$ is a field.
+	\[\forall x,y\in U, \forall a\in \F, ax+y\in U\wedge (1\in \F)\]
+	\[\implies \forall x,y\in U, x+y\in U \]
+	If we set $y$ to 0, then for any $a\in\F$, we know that $ax\in U$.\\
+	\[\forall x,y\in U, \forall a\in \F, ax+y\in U\wedge (0\in U)\]
+	\[\implies \forall x\in U,\forall a\in\F ax\in U \]
+	Thus, we have satisfied the conditions to say that $U$ is a subspace of V.
+	
+	
+\end{document}
+

@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\title{mat159 1-20}
+\author{Week 3}
+\date{January 2026}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section{Review}
+	Rational Functions can be interpreted in finite terms. \\
+	$f integrated \to R(t)$ by rationalization.\\
+	$R(x,y)$ where $P(x,y)=0.$\\
+	\[y=\sqrt{ax+b}\ (y^2=ax+b,\ \textnormal{ie }P(x,y)=ax+b-y^2=0)\]
+	Denote by $t=\sqrt{ax+b}$, then $t^2=ax+b$.\\
+	From there, $x=\frac{t^2-b}a,$ and $dx=\frac{2t}a dt$\\
+	\[\int R(x,\sqrt{ax+b})dx=\int R(\frac{t^2-b}a,t)\frac{2t}a dt\]
+	\subsubsection{Example}
+	\[\int \frac{\sqrt{x+1}+2}{(x+1)^2-\sqrt{x+1}}dx\]
+	Let $t=\sqrt{x+1}$, then $t^2=x+1$ and $2t\ dt = dx$\\
+	\[\int \frac{t+2}{t^3-1}2;dt\]
+	\[=2\int\frac{t+2}{t^3-1}dt\]
+	\[=2\int\frac{a}{t-1}+]\frac{bt+c}{t^2+t+1};dt\]
+	We need uhhh
+	\[at^2+at+a+bt^2+(c-b)t-c=t+2\]
+	\[a+b=0\]
+	\[a+c-b=1\]
+	\[a-c=2\]
+	\[a=1,b=-1,c=-1\]
+	Thus, 
+	\[2\int\frac{1}{t-1}-\frac{t+1}{t^2+t+1}dt\]
+	\subsection{Quadratic}
+	\[y=\sqrt{ax^2+bx+c}\]
+	\[R(x,y)\text{ becomes }R(x,\sqrt{ax^2+bx+c})\]
+	\[\sqrt{ax^2+bx+c}=\sqrt{a(x+\frac{b}{2a})^2+\frac{4ac-b^2}{4a}}\text{???????????????????}\]
+	\begin{enumerate}
+		\item $R(u,\sqrt{u^2+1})$\\
+				$u=\tan t,\ t\in (-\frac{\pi}2,\frac{\pi}2)$\\
+				$R(\tan t,\sec t)=\tilde{R}(\cot t,\sin t)$\\
+				$\int R(u,\sqrt{u^2+1}du)=\int \tilde R(\cos t t,\sin t) \sec^2 t\ dt=\int \overline{R}\cos t,\sin t)dt$
+		\item $R(u,\sqrt{u^2-1})$\\
+			\[u=\sec t,\ t\in(0,\pi)\]
+			\[\int R(\sec t,\tan t)\sec t\tan t\ dt\]
+		\item $R(u,\sqrt{1-u^2})$
+		\[u=\sin t,\ t\in(-\frac{\pi}2,\frac \pi 2)\]
+		\[\int R(\sin t,\cos t)\cos t\ dt\]
+ 	\end{enumerate}
+	Something eular knew that if you could get\\
+	Function of x and y: R(x,y)\\
+	Function of x as t: x=f(t)\\
+	Function of y as t: y=g(t)\\
+	where $f,g\in \mathbb R(t)$
+	
+\end{document}
+

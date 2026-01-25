@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[]{amsmath}
+\title{temp}
+\author{Yulian Zhu-yu}
+\date{January 2026}
+
+\begin{document}
+	\[\int \frac{8+t+6t^2-12t^3}{(3t^2+4)(t^2+7)}dt\]
+	\[\frac{8+t+6t^2-12t^3}{(3t^2+4)(t^2+7)}=\frac{At+B}{3t^2+4}+\frac{Ct+D}{t^2+7}\]
+	\begin{align*}
+		\implies 8+t+6t^2-12t^3&=(At+B)(t^2+7)+(Ct+D)(3t^2+4)\\
+		&=(A+3C)t^3+(B+3D)t^2+(7A+4C)t+(7B+4D)
+	\end{align*}
+	\begin{align*}
+		A+3C&=-12\\
+		B+3D&=6\\
+		7A+4C&=1\\
+		7B+4D&=8\\
+	\end{align*}
+	
+	\[\begin{pmatrix}
+		1&3\\
+		7&4
+	\end{pmatrix}^{-1}=\frac{-1}{17}\begin{pmatrix}
+		4&-3\\
+		-7&1\\
+	\end{pmatrix}\]
+	\[\begin{pmatrix}
+		1&3\\
+		7&4\\
+	\end{pmatrix}\begin{pmatrix}
+	A\\
+	C\\
+	\end{pmatrix}=\begin{pmatrix}
+		-12\\
+		1\\
+	\end{pmatrix}\implies\begin{pmatrix}
+	A\\
+	C\\
+	\end{pmatrix}=\begin{pmatrix}
+	5\\
+	5
+	\end{pmatrix}\]
+	
+		\[\begin{pmatrix}
+		1&3\\
+		7&4\\
+	\end{pmatrix}\begin{pmatrix}
+		B\\
+		D\\
+	\end{pmatrix}=\begin{pmatrix}
+		6\\
+		8\\
+	\end{pmatrix}\implies\begin{pmatrix}
+		B\\
+		D\\
+	\end{pmatrix}=\begin{pmatrix}
+		0\\
+		2
+	\end{pmatrix}\]
+	\[=\frac{3t}{3t^2+4}dt+\int \frac{5t}{t^2+7}dt+\int\frac{2}{t^2+7}dt\]
+	\newpage
+	\[\int \frac{8+t+6t^2-12t^3}{(3t^2+4)(t^2+7)}dt\]
+	\[\frac{8+t+6t^2-12t^3}{(3t^2+4)(t^2+7)}=\frac{At+B}{3t^2+4}+\frac{Ct+D}{t^2+7}\]
+	\[\implies 8+t+6t^2-12t^3=(At+B)(t^2+7)+(Ct+D)(3t^2+4)\]
+	Let $t^2=-7$
+	\begin{align*}
+		8+t+6t^2-12t^3&=(At+B)(t^2+7)+(Ct+D)(3t^2+4)\\
+		\implies 8+t-42+84t&=(Ct+D)(-17)
+	\end{align*}
+	\[\implies -17C=85,\ -17D=-34\]
+	\[\implies C=-5,\ D=2\]
+	Let $t^2=-\frac{4}{3}$
+	\begin{align*}
+		8+t-8+16t&=(At+B)(-\frac{4}{3}+7)\\
+		\implies 17t&=(At+B)(\frac{17}{3})
+	\end{align*}
+	\[\implies \frac{17}{3}A=17,\ \frac{17}{3}B=0\]
+	\[\implies A=3,\ B=0\]
+	\[=\frac{3t}{3t^2+4}dt+\int \frac{5t}{t^2+7}dt+\int\frac{2}{t^2+7}dt\]
+\end{document}
+

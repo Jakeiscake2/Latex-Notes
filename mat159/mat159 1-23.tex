@@ -1,0 +1,120 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[]{amsmath,amsfonts}
+\title{mat159 1-23}
+\date{January 2026}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section{Week 3 Review:}
+	\begin{itemize}
+		\item Indefinite Integral $\int f(x) dx$
+		\begin{itemize}
+			\item Definition
+			\item Technique
+			\item Rationalization $R(x,y),P(x,y)=0$
+		\end{itemize}
+	\end{itemize}
+	\subsection{Definite Integral}
+	Def: Partition\\
+	Let $[a,b]$ be a closed interval.\\
+	Denote by\\
+	\[T:a=x_0<x_1<x_2<\dots<x_n=b\]
+	a partition of $[a,b]$\\
+	\[\bar T\bar T:=\underset{a\leq i\leq n-1}{\max}x_{i-1}-x_i\]
+	We use
+	\[\Omega [a,b]\text{ to denote all partitions on }[a,b]\]
+	Def: Marked Partition\\
+	\[\Omega^*[a,b]\]
+	
+	\subsection{Riemann Sum}
+	Let $f:[a,b]\to \mathbb R$\\
+	The Riemann Sum
+	\[\sigma(f,\Gamma,\eta)=\sum_{i=0}^{n-1}f(\eta_i)\Delta x_i,\ \Delta x_i=x_{i+1}-x_i\]
+	Def: Riemann Integral\\
+	If $\int \in \mathbb R$ is the limit of the Riemann Sum, in the sense.
+	\[\lim_{\bar T\bar \to 0}\sigma (f,\Gamma,\eta)=S\]
+	Then we call $\int$ the Riemann integral of f on $[a,b]$ denoted by $\int_a^b f(x)dx$. This is just a real number.\\
+	\[\to \forall \epsilon>0,\exists \delta >0, \forall (\Gamma,\eta)\in \Omega^*[a,b],|\Gamma|<\delta\implies |\sigma(f,\Gamma,\eta)-S|<\epsilon\]
+	\subsubsection{Remark}
+	\begin{itemize}
+		\item We don't care about how we make the partition 
+		\item We don't care about the marked point.
+	\end{itemize}
+	\subsubsection{Example: (Affine Function)}
+	\[f:[a,b]\to \mathbb R,\ f(x)=kx+l\]
+	For any given partition, we pick some special marked point.\\
+	\[\eta_i=\frac{x_i+x_{i+1}}{2}\]
+	\[\sigma(f,\Gamma,\eta)=\sum_{i=0}^{n-1}f(\frac{x_i+x_{i+1}}{2})\Delta x_i\]
+	\[=\sum_{i=0}^{n-1}(k(\frac{x_i+x_{i+1}}{2})+l)(x_{i+1}-x_i)\]
+	\[=\sum_{i=0}^{n-1}k\frac{x_{i+1}^2-x_{i}^2}{2}+l(x_{i+1}-x_i)\]
+	\[=\frac{k(b^2-a^2)}{2}+l(b-a)\]
+	Now let $(\tilde{\Gamma},\tilde{\eta})$ be an arbitrary marked partition.
+	\[\sigma(f,\tilde{\Gamma},\tilde{\eta})=\sum_{i=0}^{m-1}f(\tilde{\eta})\Delta x_i\]
+	\[|\sigma(f,\tilde{\Gamma},\tilde{\eta})-(\frac{k}2 (b^2-a^2)+l(b-a)|\]
+	\[|\sum_{i=0}^{m-1}(f(\tilde{\Gamma}_i)-f(\Gamma_i))\Delta x_i|\]
+	\[\leq\sum_{i=0}^{m-1}|k\Delta x_i|*\Delta x_i\leq (\sum_{i=0}^{m-1}\Delta x_i)|k||\Gamma|=(b-a)|k||\Gamma|\]
+	\subsubsection{Remark}
+	What if we had Cauchy Criterion, but for Riemann integral?
+	\[\forall \epsilon >0, \exists \delta >0, st \forall (\Gamma_1,\eta_1),|\Gamma_2,\eta_2|\in\Omega^*[a,b]\]
+	\[|\Gamma,1|,|\Gamma_2|<\delta\implies |\sigma(f,\Gamma_1,\eta_1)-\sigma(f,\Gamma_2,\eta_2)|<\epsilon\]
+	\subsection{Existence of Riemann Integral}
+	Necessary Condition
+	\[f\in\mathbb R[a,b]\implies \exists M\geq 0,\ st |f|\leq M \text{ on }[a,b]\]
+	Proof:\\
+	If f is unbounded on [a,b], we can divide this into partitions, say $\eta_1,\eta_2,\eta_3,\dots,\eta_6$. At least one of these partitions must be unbounded as well, maybe multiple.\\
+	We then pick the unbounded partition, say $\eta_3$. Let $M$ be the sum of all other partitions which are bounded.
+	\[|\Delta x_3f(\eta_3)+M|>1\]
+	Now, we can continue to add more partitions to shrink them more and get a larger sum each time. 
+	\[|\Delta x_nf(\eta_n)+M|\to \infty\]
+	However, this is the definition of Riemann integral, thus our Riemann integral is also unbounded. and does not exist.
+	
+	\subsubsection{Remark}
+	Let $f:D\subseteq \mathbb R\to \mathbb R$.
+	\[V_f(D)=\underset{x,y\in D}{\sup}|f(x)-f(y)|\]
+	Given a partition $\Gamma$, the total oscillation of f on $\Gamma$ is defined as.
+	\[\sum_{i=0}^{n-1}\]
+	\subsubsection{Proposition}
+	Let f be the bounded function of $[a,b]$. Then $f\in\mathbb R[a,b]$ if \[\forall \epsilon >0,\exists \delta >0 \forall \Gamma \in \Omega[a,b],|\Gamma|<S\implies |\sum_{i=0}^{n-1}V_f([x_i,x_{i+1}])\Delta x_i|<\epsilon\]
+	\subsubsection{Proof}
+	Now, let $\epsilon >0$, pick $\delta$, st $\forall (\Gamma)\in\Omega^*[a,b],\sum_{i=0}^{n-1}V_f([x_i,x_{i+1}])\Delta x_i<\frac{\epsilon}{2}$.
+	\[\forall (\Gamma_1,\eta_1),(\Gamma_2,\eta_2)\in\Omega^*[a,b]\]
+	\[|\sigma(f,\Gamma_1,\eta_1)-\sigma(f,\Gamma_2,\eta_2)|\]
+	Now, take the union of $\Gamma_1$ and $\Gamma_2$, this is a refinement on both of them.
+	\[\leq |\sigma(f,\Gamma_1\cup\Gamma_2,\eta_1)-\sigma(f,\Gamma_2,\eta_2)|+|\sigma(f,\Gamma_1,\eta_1)-\sigma(f,\Gamma_1\cup\Gamma_2,\eta_1)|\]
+	\[<\frac{\epsilon}{2}+\frac{\epsilon}{2}\]
+	\subsubsection{Corollary 1}
+	\[f\in C[a,b]\implies f\in \mathbb R[a,b]\]
+	\subsubsection{Corollary 2}
+	f is bounded and f has finitely many discontinuities, then $f\in \mathbb R[a,b]$
+	Proof:
+	Assume there are k many discontinuities, numbered $y_1,y_2,\dots y_k$. Choose a small interval around the discontinuities. \\
+	Now, take $[a,b] / \bigcup_{i=1}^{k} I_{\delta_i}(y+i)$. This is an open set which we can take a partition on.\\
+	Either a partition does not overlap with any discontinuity or it does. The parts which do not overlap have a max of $(b-a)\epsilon$.\\
+	A part which does overlap might lose $V_f([a,b])(2\delta_1+2\delta_2)k$.\\
+	Now, as we reduce $\delta_1,\delta_2$, $(b-a)\epsilon$ does not so we have a value.
+	\subsubsection{Corollary 3}
+	If a function is monotonically increasing on $[a,b]\implies f\in\mathbb R[a,b]$.\\ 
+	Variation is controlled. 
+	\subsection{Refinement}
+	Let $\Gamma$ be a partition. A refinement of $\Gamma$ is obtained by adding new points in $\Gamma$.
+	
+	\subsubsection{Remark}
+	A typical idea is "refinement makes things more stable".\\
+	For example, refinement decreases the total oscillation on a partition.\\
+	$\Gamma: $ Partition\\
+	$\tilde{\Gamma}:$ Refinement of $\Gamma$\\
+	For example, we take 
+	\[x_{ij},i=1,2,3\dots \]
+	which are new points in $[x_i,x_{i+1}]$.\\
+	\[\sigma(f,\Gamma,\eta)-\sigma(f,\tilde{\Gamma},\tilde{\eta})\]
+	\[=\sum_{i=0}^{n-1}f(\eta_i)\Delta x_i-\sum_{i=0}^{n-1}\sum_j f(\eta_ij)\Delta x_{ij}\]
+	We can take the sum of the small intervals within each interval.
+	\[=\sum_{i=0}^{n-1}\sum_j f(\eta_i)\Delta x_{i}-\sum_{i=0}^{n-1}\sum_j f(\eta_ij)\Delta x_{ij}\]
+	\[=\sum_{i=0}^{n-1}\sum_j |f(\eta_i) - f(\eta_ij)|\Delta x_{ij}\]
+	\[\leq\sum_{i=0}^{n-1}\sum_j |V_f([x_i,x_{i+1}])|\Delta x_{ij}\]
+	\[=\sum_{i=0}^{n+1}V_f([x_i,x_{i+1}])\Delta x_i\]
+\end{document}
+
